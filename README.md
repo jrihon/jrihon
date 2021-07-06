@@ -24,6 +24,13 @@ I work through static and dynamic modeling approaches, with the intent on making
 `Vi Improved (Vim)`\
 `.dotfile configuration`
 
+## .dotfile
+The available .dotfiles are to be used in conjuction.\
+The Vim plugin manager I use is the `vim-plug`, over at [junegunn/vim-plug](github.com/junegunn/vim-plug)\
+The `Starship` prompt is available over at [Starship](https://starship.rs/)
+
+Make sure you have a github account and a valid .gitconfig file with at least your username and email configured, in order to download automatically from the available repositories.
+
 ## Acknowledgements
 This README.md has been written with the help of [readme.so](https://readme.so/)
 
