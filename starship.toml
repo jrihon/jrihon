@@ -6,7 +6,7 @@ disabled = false
 # The symbol of a succesful command and an error command 
 [character]
 success_symbol = "[❯ ](#E37534)"
-error_symbol = "[✖](#DB425B) "
+error_symbol = "[✖ ](#DB425B) "
 
 # Truncate the path of the directory to only the basename
 [directory]
