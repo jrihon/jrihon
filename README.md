@@ -6,10 +6,10 @@ Contracted by the Catholic University of Leuven (KU Leuven).\
 I've studied Pharmaceutical Sciences, with a master degree in Drug Design and Development, and decided to completely switch it up and go towards the computational sciences.
 
 ## Research
-My main focus is on the computational characterisation of nucleic acids\
- `comp chem` `comp bio` `bio informatics`.\
+My main focus is on the computational characterisation of nucleic acids and protein engineering\
+ `comp chem` `comp bio` `bio informatics` `chemistry` `biology`.
 
-I work through static and dynamic modeling approaches, with the intent on making biological systems suitable by predicting the viability of said systems.\
+I work through static and dynamic modeling approaches, with the intent on making biological systems suitable by predicting the viability of said systems.
 
 ### Online prescence
  - [ORCID](https://orcid.org/0000-0002-9207-1556)
@@ -18,7 +18,10 @@ I work through static and dynamic modeling approaches, with the intent on making
 
 ## Skills
 
-
+`python 3`\
+`shell scripting`\
+`Vi Improved (Vim)`\
+`.dotfile configuration`
 
 ## Acknowledgements
 This README.md has been written with the help of [readme.so](https://readme.so/)
