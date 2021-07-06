@@ -1,0 +1,94 @@
+# Break the new line at the start of the prompt
+[line_break]
+disabled = false
+
+
+# The symbol of a succesful command and an error command 
+[character]
+success_symbol = "[❯ ](#E37534)"
+error_symbol = "[✖](#DB425B) "
+
+# Truncate the path of the directory to only the basename
+[directory]
+style = " bold #00BFB9"
+truncation_length = 1
+
+# Show the username and divide the directory with a pipe symbol
+[username]
+style_user = "bold #E37534"
+show_always = true
+style_root = "bold #E37534"
+format = "[$user|]($style) - "
+
+# Show command duration above 500 ms
+[cmd_duration]
+min_time = 500
+style = "bold #98DEDE"
+format = "[      - $duration]($style)"
+show_milliseconds = true
+
+# Show the time in the command prompt
+[time]
+time_format = "%T"
+format = "🕙 $time($style) "
+style = "bright-white"
+disabled = false
+
+# Everything to do with the display of battery
+[battery]
+#full_symbol = ""
+#charging_symbol = "  "
+#discharging_symbol = "  " 
+format = "$percentage[$symbol]($style)| "
+
+# Order of threshold here matters! from low to high
+[[battery.display]]
+threshold = 20
+discharging_symbol = "  CHARGE YOUR LAPTOP"
+charging_symbol = "  "
+style = "#FA1400"
+
+[[battery.display]]
+threshold = 40
+discharging_symbol = "  "
+charging_symbol = "  "
+style = "#FA780C"
+
+[[battery.display]]
+threshold = 60
+discharging_symbol = "  "
+charging_symbol = "  "
+style = "#FAAF28"
+
+[[battery.display]]
+threshold = 85
+discharging_symbol = "  "
+charging_symbol = "  "
+style = "#88FA78"
+
+[[battery.display]]
+threshold = 100
+charging_symbol = "  "
+discharging_symbol = "  "
+style = "#00FA19"
+
+# Shows memory when threshold of 60% is in use
+[memory_usage]
+disabled = false
+threshold = 60
+format = "- $symbol[${ram}]($style) "
+
+# Configures the python prompt
+[python]
+symbol = " "
+format = '- [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+
+# Configures the github prompt
+[git_branch]
+symbol = " "
+style = "#A779FF"
+format = "| [$symbol$branch]($style) "
+
+[git_status]
+disabled = true
+
