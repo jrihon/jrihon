@@ -44,7 +44,7 @@ Download them all manually (complete version) and open your terminal.\
 ` $ mkdir ~/.local/share/fonts && mv ~/Downloads/Hack* ~/.local/share/fonts/`
 
 
-Make sure you have a github account and a valid .gitconfig file with at least your username and email configured, in order to download automatically from the available repositories.
+Make sure you have a github account and a valid `~/.gitconfig` with at least your username and email configured, in order to download automatically from the available repositories.
 
 ## Acknowledgements
 This README.md has been written with the help of [readme.so](https://readme.so/)
