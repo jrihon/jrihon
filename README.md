@@ -25,7 +25,9 @@ I work through static and dynamic modeling approaches, with the intent on making
 `.dotfile configuration`
 
 ## .dotfile
-The available .dotfiles are to be used in conjuction.\
+The available .dotfiles are to be used in conjuction :
+
+
 The Vim plugin manager I use is the `vim-plug`, over at [junegunn/vim-plug](github.com/junegunn/vim-plug)\
 Open your terminal `mkdir ~/.vim && mkdir ~/.vim/plugged`\
 ` $ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`\
