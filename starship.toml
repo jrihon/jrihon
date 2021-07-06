@@ -52,7 +52,7 @@ style = "#FA1400"
 threshold = 40
 discharging_symbol = "  "
 charging_symbol = "  "
-style = "#FA780C"
+style = "#F8D50C"
 
 [[battery.display]]
 threshold = 60
