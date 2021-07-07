@@ -12,10 +12,11 @@ My main focus is on the computational characterisation of nucleic acids and prot
 
 I work through static and dynamic modeling approaches, with the intent on making biological systems suitable by predicting the viability of said systems.
 
-### Online prescence
+### Online presence
  - [ORCID](https://orcid.org/0000-0002-9207-1556)
  - [LinkedIn](www.linkedin.com/in/jérôme-rihon)
  - [Bibliography - Published Work](http://lirias.kuleuven.be/cv?Username=U0141262)
+<br/>
 
 ## Skills
 
@@ -24,6 +25,7 @@ I work through static and dynamic modeling approaches, with the intent on making
 `Vi Improved (Vim)`\
 `.dotfile configuration`\
 `LaTeX`
+<br/>
 <br/>
 
 ## .dotfiles
@@ -47,6 +49,7 @@ For the icons, I use the `nerd-fonts/patched-fonts/Hack/` font package from [rya
  - ` $ mkdir ~/.local/share/fonts && mv ~/Downloads/Hack* ~/.local/share/fonts/`<br/>
 
 Make sure you have a github account and a valid `~/.gitconfig` with at least your username and email configured, in order to download automatically from the available repositories.<br/>
+<br/>
 
 ## Acknowledgements
 This README.md has been written with the help of [readme.so](https://readme.so/)
