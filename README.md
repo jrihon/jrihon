@@ -35,7 +35,7 @@ I work through static and dynamic modeling approaches, with the intent on making
 
 The available .dotfiles are to be used in conjuction :<br/>
 
-The Vim plugin manager I use is the `vim-plug`, over at [junegunn/vim-plug](github.com/junegunn/vim-plug)
+The Vim plugin manager I use is the `vim-plug`, over at [junegunn/vim-plug](https://github.com/junegunn/vim-plug)
  - Open your terminal `mkdir ~/.vim && mkdir ~/.vim/plugged`
  - ` $ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
  - Override your current `~/.vimrc` with the one from this repository.
