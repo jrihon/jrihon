@@ -40,14 +40,14 @@ The Vim plugin manager I use is the `vim-plug`, over at [junegunn/vim-plug](gith
  - ` $ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
  - Override your current `~/.vimrc` with the one from this repository.
  - Inside the Vim terminal : `:source %` `:PlugInstall`<br/>
-![alt text](https://github.com/jrihon/jrihon/blob/main/vim_configured_example.png)
+![alt text](https://github.com/jrihon/jrihon/blob/main/vim_configured_example.png)<br/>
+<br/>
 
-<br/>
-<br/>
 The `Starship` prompt is available over at [Starship](https://starship.rs/)
  - ` $ sh -c "$(curl -fsSL https://starship.rs/install.sh)"`
  -  add `eval "$(starship init bash)"` to your `~/.bashrc`
  -` $ mkdir -p ~/.config && touch ~/.config/starship.toml` and override the newly created toml-file with the one from this repository.<br/>
+<br/>
 
 For the icons, I use the `nerd-fonts/patched-fonts/Hack/` font package from [ryanoasis/nerdfonts](https://github.com/ryanoasis/nerd-fonts).
  - Download them all manually (complete version) and open your terminal.
