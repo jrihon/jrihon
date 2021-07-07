@@ -26,7 +26,8 @@ I work through static and dynamic modeling approaches, with the intent on making
 `LaTeX`
 
 <br/>
-## .dotfile\
+## .dotfile<br/>
+
 The available .dotfiles are to be used in conjuction :<br/>
 
 The Vim plugin manager I use is the `vim-plug`, over at [junegunn/vim-plug](github.com/junegunn/vim-plug)
