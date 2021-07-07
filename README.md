@@ -51,7 +51,8 @@ The `Starship` prompt is available over at [Starship](https://starship.rs/)
 
 For the icons, I use the `nerd-fonts/patched-fonts/Hack/` font package from [ryanoasis/nerdfonts](https://github.com/ryanoasis/nerd-fonts).
  - Download them all manually (complete version) and open your terminal.
- - ` $ mkdir ~/.local/share/fonts && mv ~/Downloads/Hack* ~/.local/share/fonts/`<br/><br/>
+ - ` $ mkdir ~/.local/share/fonts && mv ~/Downloads/Hack* ~/.local/share/fonts/`<br/>
+![alt text](https://github.com/jrihon/jrihon/blob/main/starship_configured_example.png)<br/><br/>
 
 Make sure you have a github account and a valid `~/.gitconfig` with at least your username and email configured, in order to download automatically from the available repositories.<br/>
 <br/>
