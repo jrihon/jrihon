@@ -4,6 +4,8 @@
 Hi there, a PhD student over at the lab of Medicinal Chemistry @Rega Institute for Medical Research in Leuven. 
 Contracted by the Catholic University of Leuven (KU Leuven).\
 I've studied Pharmaceutical Sciences, with a master degree in Drug Design and Development, and decided to completely switch it up and go towards the computational sciences. I've quite quickly grown fond of exploring and exploiting research methods through computational methods, during my master thesis, that I was very intent on continuing research in this field. I work primarily through numerical programming, scripting methods and predict biochemical reality through computational experiments.
+<br/>
+<br/>
 
 ## Research
 My main focus is on the computational characterisation of nucleic acids and protein engineering\
