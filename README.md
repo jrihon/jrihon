@@ -24,9 +24,10 @@ I work through static and dynamic modeling approaches, with the intent on making
 `Vi Improved (Vim)`\
 `.dotfile configuration`\
 `LaTeX`
-
 <br/>
-## .dotfile<br/>
+
+## .dotfiles
+<br/>
 
 The available .dotfiles are to be used in conjuction :<br/>
 
