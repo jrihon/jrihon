@@ -22,29 +22,29 @@ I work through static and dynamic modeling approaches, with the intent on making
 `python 3`\
 `shell scripting`\
 `Vi Improved (Vim)`\
-`.dotfile configuration`
+`.dotfile configuration`\
+`LaTeX`
 
+<br/>
 ## .dotfile
-The available .dotfiles are to be used in conjuction :
-
+The available .dotfiles are to be used in conjuction :<br/>
 
 The Vim plugin manager I use is the `vim-plug`, over at [junegunn/vim-plug](github.com/junegunn/vim-plug)\
-Open your terminal `mkdir ~/.vim && mkdir ~/.vim/plugged`\
-` $ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`\
-Override your current `~/.vimrc` with the one from this repository.\
-Inside the Vim terminal : `:source %` `:PlugInstall`
-
+ - Open your terminal `mkdir ~/.vim && mkdir ~/.vim/plugged`\
+ - ` $ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`\
+ - Override your current `~/.vimrc` with the one from this repository.\
+ - Inside the Vim terminal : `:source %` `:PlugInstall`<br/>
 
 The `Starship` prompt is available over at [Starship](https://starship.rs/)\
-` $ sh -c "$(curl -fsSL https://starship.rs/install.sh)"` and add `eval "$(starship init bash)"` to your `~/.bashrc`\
-` $ mkdir -p ~/.config && touch ~/.config/starship.toml` and override the newly created toml-file with the one from this repository.
+ - ` $ sh -c "$(curl -fsSL https://starship.rs/install.sh)"`\
+ -  add `eval "$(starship init bash)"` to your `~/.bashrc`\
+ -` $ mkdir -p ~/.config && touch ~/.config/starship.toml` and override the newly created toml-file with the one from this repository.<br/>
 
 For the icons, I use the `nerd-fonts/patched-fonts/Hack/` font package from [ryanoasis/nerdfonts](https://github.com/ryanoasis/nerd-fonts).\
-Download them all manually (complete version) and open your terminal.\
-` $ mkdir ~/.local/share/fonts && mv ~/Downloads/Hack* ~/.local/share/fonts/`
+ - Download them all manually (complete version) and open your terminal.\
+ - ` $ mkdir ~/.local/share/fonts && mv ~/Downloads/Hack* ~/.local/share/fonts/`<br/>
 
-
-Make sure you have a github account and a valid `~/.gitconfig` with at least your username and email configured, in order to download automatically from the available repositories.
+Make sure you have a github account and a valid `~/.gitconfig` with at least your username and email configured, in order to download automatically from the available repositories.<br/>
 
 ## Acknowledgements
 This README.md has been written with the help of [readme.so](https://readme.so/)
