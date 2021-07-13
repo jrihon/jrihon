@@ -1,3 +1,10 @@
+# The new prompt
+format = """
+[┌───── $username ───── ](bold #F578A2)$directory$git_branch$python$cmd_duration
+[│](bold #F578A2) $battery$time
+[└─](bold #F578A2)$character"""
+
+
 # Break the new line at the start of the prompt
 [line_break]
 disabled = false
@@ -5,26 +12,27 @@ disabled = false
 
 # The symbol of a succesful command and an error command 
 [character]
-success_symbol = "[❯ ](#E37534)"
-error_symbol = "[✖ ](#DB425B) "
+success_symbol = "[ ](bold #F578A2)"
+error_symbol = "[ ](#DB425B) "
 
 # Truncate the path of the directory to only the basename
 [directory]
-style = " bold #00BFB9"
+style = " bold #71D7F5"
 truncation_length = 1
 
 # Show the username and divide the directory with a pipe symbol
 [username]
-style_user = "bold #E37534"
+style_user = "bold #F578A2"
 show_always = true
 style_root = "bold #E37534"
-format = "[$user|]($style) - "
+#format = "[$user|]($style) - "
+format = "[$user]($style)"
 
 # Show command duration above 500 ms
 [cmd_duration]
 min_time = 500
 style = "bold #98DEDE"
-format = "[      - $duration]($style)"
+format = "[      - $duration]($style)"
 show_milliseconds = true
 
 # Show the time in the command prompt
@@ -39,7 +47,7 @@ disabled = false
 #full_symbol = ""
 #charging_symbol = "  "
 #discharging_symbol = "  " 
-format = "$percentage[$symbol]($style)| "
+format = "[$symbol]($style)$percentage  |  "
 
 # Order of threshold here matters! from low to high
 [[battery.display]]
@@ -52,13 +60,13 @@ style = "#FA1400"
 threshold = 40
 discharging_symbol = "  "
 charging_symbol = "  "
-style = "#F8D50C"
+style = "#FAAF28"
 
 [[battery.display]]
 threshold = 60
 discharging_symbol = "  "
 charging_symbol = "  "
-style = "#FAAF28"
+style = "#F8D50C"
 
 [[battery.display]]
 threshold = 85
