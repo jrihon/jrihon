@@ -1,8 +1,9 @@
 # The new prompt
 format = """
-[┌───── $username ───── ](bold #F578A2)$directory$git_branch$python$cmd_duration
-[│](bold #F578A2) $battery$time
-[└─](bold #F578A2)$character"""
+[┌───── $username ───── ](bold #F8AACE)$directory$git_branch$python$cmd_duration
+[│](bold #F8AACE) $battery$time
+[│](bold #F8AACE)
+[└─](bold #F8AACE)$character"""
 
 
 # Break the new line at the start of the prompt
@@ -12,7 +13,7 @@ disabled = false
 
 # The symbol of a succesful command and an error command 
 [character]
-success_symbol = "[ ](bold #F578A2)"
+success_symbol = "[ ](bold #F8AACE)"
 error_symbol = "[ ](#DB425B) "
 
 # Truncate the path of the directory to only the basename
@@ -22,7 +23,7 @@ truncation_length = 1
 
 # Show the username and divide the directory with a pipe symbol
 [username]
-style_user = "bold #F578A2"
+style_user = "bold #F8AACE"
 show_always = true
 style_root = "bold #E37534"
 #format = "[$user|]($style) - "
@@ -44,9 +45,6 @@ disabled = false
 
 # Everything to do with the display of battery
 [battery]
-#full_symbol = ""
-#charging_symbol = "  "
-#discharging_symbol = "  " 
 format = "[$symbol]($style)$percentage  |  "
 
 # Order of threshold here matters! from low to high
@@ -89,14 +87,15 @@ format = "- $symbol[${ram}]($style) "
 # Configures the python prompt
 [python]
 symbol = " "
-format = '- [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+format = '[- ${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 
 # Configures the github prompt
 [git_branch]
 symbol = " "
 style = "#A779FF"
-format = "| [$symbol$branch]($style) "
+format = "[| $symbol$branch]($style) "
 
 [git_status]
 disabled = true
+
 
