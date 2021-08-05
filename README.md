@@ -56,7 +56,7 @@ For the icons, I use the `nerd-fonts/patched-fonts/Hack/` font package from [rya
  - ` $ mkdir ~/.local/share/fonts && mv ~/Downloads/Hack* ~/.local/share/fonts/`<br/>
 <!--
 ![alt text](https://github.com/jrihon/jrihon/blob/main/starship_configured_example1.png)<br/><br/>
--->
+--><br/><br/>
 
 Make sure you have a github account and a valid `~/.gitconfig` with at least your username and email configured, in order to download automatically from the available repositories.<br/>
 <br/>
