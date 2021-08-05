@@ -24,7 +24,7 @@ I work through static and dynamic modeling approaches, with the intent on making
 
 `python 3`\
 `shell scripting`\
-`Vi Improved (Vim)`\
+`(Neo)Vim`\
 `.dotfile configuration`\
 `LaTeX`
 <br/>
