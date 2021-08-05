@@ -40,8 +40,10 @@ The Vim plugin manager I use is the `vim-plug`, over at [junegunn/vim-plug](http
  - ` $ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
  - Override your current `~/.vimrc` with the one from this repository.
  - Inside the Vim terminal : `:source %` `:PlugInstall`<br/>
+<!--
 ![alt text](https://github.com/jrihon/jrihon/blob/main/vim_configured_example.png)<br/>
 <br/>
+-->
 
 The `Starship` prompt is available over at [Starship](https://starship.rs/)
  - ` $ sh -c "$(curl -fsSL https://starship.rs/install.sh)"`
@@ -52,7 +54,9 @@ The `Starship` prompt is available over at [Starship](https://starship.rs/)
 For the icons, I use the `nerd-fonts/patched-fonts/Hack/` font package from [ryanoasis/nerdfonts](https://github.com/ryanoasis/nerd-fonts).
  - Download them all manually (complete version) and open your terminal.
  - ` $ mkdir ~/.local/share/fonts && mv ~/Downloads/Hack* ~/.local/share/fonts/`<br/>
+<!--
 ![alt text](https://github.com/jrihon/jrihon/blob/main/starship_configured_example1.png)<br/><br/>
+-->
 
 Make sure you have a github account and a valid `~/.gitconfig` with at least your username and email configured, in order to download automatically from the available repositories.<br/>
 <br/>
