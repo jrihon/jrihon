@@ -35,6 +35,7 @@ Plug 'mbbill/undotree'
 Plug 'itchyny/lightline.vim'
 Plug 'ap/vim-css-color'
 Plug 'ryanoasis/vim-devicons'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 call plug#end()
 
 
