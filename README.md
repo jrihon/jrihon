@@ -36,10 +36,10 @@ I work through static and dynamic modeling approaches, with the intent on making
 The available .dotfiles are to be used in conjuction :<br/>
 ### Nvim
 The Vim plugin manager I use is the `vim-plug`, over at [junegunn/vim-plug](https://github.com/junegunn/vim-plug)
- - Open your terminal `mkdir ~/.vim && mkdir ~/.vim/plugged`
- - ` $ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
- - Override your current `~/.vimrc` with the one from this repository.
- - Inside the Vim terminal : `:source %` `:PlugInstall`<br/>
+ - Open your terminal `mkdir ~/.config/nvim && mkdir ~/.config/nvim/plugged`
+ - ` $ curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
+ - Override your current `~/.config/nvim/init.vim` with the one from this repository.
+ - Inside the Nvim buffer : `:source %` `:PlugInstall`<br/>
 <!--
 ![alt text](https://github.com/jrihon/jrihon/blob/main/vim_configured_example.png)<br/>
 <br/>
