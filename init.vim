@@ -65,8 +65,12 @@ let g:ctrlp_use_caching = 0
 
 " shift from left window to right window "
 nnoremap <leader>h :wincmd h<CR>
-" shift from right window to left "
+" shift from right window to left window"
 nnoremap <leader>l :wincmd l<CR>
+" shift from bottom window to top window "
+nnoremap <leader>k :wincmd k<CR>
+" shift from top window to bottom window "
+nnoremap <leader>j :wincmd j<CR>
 " split to windows ( :wincmd v ) and adjust the size of it
 nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
 " shows undo tree, whichs shows the history of what you've done "
@@ -74,8 +78,8 @@ nnoremap <leader>u :UndotreeShow<CR>
 " ripgrep to search for shit "
 nnoremap <leader>ps :Rg<SPACE>
 " resize the window manually "
-nnoremap <silent> <Leader>+ :vertical resize +5<CR>
-nnoremap <silent> <Leader>- :vertical resize -5<CR>
+nnoremap <silent> <Leader>+ :vertical resize +15<CR>
+nnoremap <silent> <Leader>- :vertical resize -15<CR>
 
 " YCM "
 " The best part." 
