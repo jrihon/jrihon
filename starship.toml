@@ -3,7 +3,8 @@ format = """
 [┌───── $username ───── ](bold #F8AACE)$directory$git_branch$python$cmd_duration
 [│](bold #F8AACE) $battery$time
 [│](bold #F8AACE)
-[└─](bold #F8AACE)$character"""
+[](bold #F8AACE)$character"""
+
 
 
 # Break the new line at the start of the prompt
@@ -13,8 +14,10 @@ disabled = false
 
 # The symbol of a succesful command and an error command 
 [character]
-success_symbol = "[ ](bold #F8AACE)"
-error_symbol = "[ ](#DB425B) "
+#success_symbol = "[ ](bold #f8aace)"
+#error_symbol = "[ ](#DB425B) "
+success_symbol = "[\\$](bold #f8aace)"
+error_symbol = "[X](bold #DB425B) "
 
 # Truncate the path of the directory to only the basename
 [directory]
@@ -33,8 +36,8 @@ format = "[$user]($style)"
 [cmd_duration]
 min_time = 500
 style = "bold #98DEDE"
-format = "[      - $duration]($style)"
-show_milliseconds = true
+format = "[       - $duration]($style)"
+show_milliseconds = false
 
 # Show the time in the command prompt
 [time]
