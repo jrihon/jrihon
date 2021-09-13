@@ -6,12 +6,14 @@ set expandtab
 set number
 set relativenumber
 set smartindent
+set nohlsearch
 set nowrap
 set smartcase
 set nobackup
 set undodir=~/.config/nvim/undo_dir
 set undofile
 set guicursor=
+set scrolloff=6
 set incsearch
 set laststatus=2
 set background=dark
@@ -39,6 +41,7 @@ Plug 'ap/vim-css-color'
 Plug 'ryanoasis/vim-devicons'
 Plug 'preservim/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'lervag/vimtex'
 "Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 call plug#end()
 
@@ -146,3 +149,12 @@ let s:palette.normal.middle = [ [ 'NONE', 'NONE', 'NONE', 'NONE' ] ]
 let s:palette.inactive.middle = s:palette.normal.middle
 let s:palette.tabline.middle = s:palette.normal.middle
 
+" Disable pear-tree
+" let g:pear_tree_ft_disabled = ['python']
+
+" VimTex YouCompleteMe
+
+if !exists('g:ycm_semantic_triggers')
+  let g:ycm_semantic_triggers = {}
+endif
+au VimEnter * let g:ycm_semantic_triggers.tex=g:vimtex#re#youcompleteme
