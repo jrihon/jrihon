@@ -216,6 +216,7 @@ let g:WebDevIconsUnicodeDecorateFileNodesDefaultSymbol = ' '
 "let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['sh'] = ' '
 
 
+
 " ------------------------------------------------------------------
 " VIMTEX CONFIGURATION
 " ------------------------------------------------------------------
