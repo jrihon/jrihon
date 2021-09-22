@@ -53,7 +53,7 @@ format = "[$symbol]($style)$percentage  |  "
 # Order of threshold here matters! from low to high
 [[battery.display]]
 threshold = 20
-discharging_symbol = "  CHARGE YOUR LAPTOP"
+discharging_symbol = "  CHARGE YOUR LAPTOP "
 charging_symbol = "  "
 style = "#FA1400"
 
