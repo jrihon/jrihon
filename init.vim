@@ -18,6 +18,9 @@ set laststatus=2
 set background=dark
 set encoding=UTF-8
 
+" If the current file we are working is, is a *.tex filetype, then set the wrap function on
+autocmd BufNewFile,BufRead *.tex set wrap
+
 let python_highlight_all = 1
 " let g:python_host_prog = '/usr/bin/python'
 
