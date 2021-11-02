@@ -40,6 +40,7 @@ The Vim plugin manager I use is the `vim-plug`, over at [junegunn/vim-plug](http
  - ` $ curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
  - Override your current `~/.config/nvim/init.vim` with the one from this repository.
  - Inside the Nvim buffer : `:source %` `:PlugInstall`<br/>
+ - Do not forget to run the install.py from YouCompleteMe `cd ~/.config/nvim/plugged/YouCompleteMe && python3 install.py` with the flag (language configuration) you wish (check the README.md)
 <!--
 ![alt text](https://github.com/jrihon/jrihon/blob/main/vim_configured_example.png)<br/>
 <br/>
