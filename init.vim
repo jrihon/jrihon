@@ -1,3 +1,10 @@
+"       _                                                  _       _ _               _           
+"      | | ___ _ __ ___  _ __ ___   ___                   (_)_ __ (_) |_      __   _(_)_ __ ___  
+"   _  | |/ _ \ '__/ _ \| '_ ` _ \ / _ \                  | | '_ \| | __|     \ \ / / | '_ ` _ \ 
+"  | |_| |  __/ | | (_) | | | | | |  __/                  | | | | | | |_   _   \ V /| | | | | | |
+"   \___/ \___|_|  \___/|_| |_| |_|\___|                  |_|_| |_|_|\__| (_)   \_/ |_|_| |_| |_|
+" 
+"
 filetype indent on
 syntax on
 set tabstop=4 softtabstop=4
@@ -30,7 +37,6 @@ let python_highlight_all = 1
 "  VIM-PLUG BEGIN
 " ------------------------------------------------------------------
 call plug#begin('~/.config/nvim/plugged')
-
 Plug 'jremmen/vim-ripgrep'                              " I do not even use this anymore
 Plug 'tpope/vim-fugitive'                               " Git plugin, not github
 "Plug 'vim-utils/vim-man'                                " View man pages in a vim-buffer. Grep for the man pages.
@@ -44,10 +50,12 @@ Plug 'itchyny/lightline.vim'                            " the colored bar betwee
 Plug 'morhetz/gruvbox'                                  " the best colorscheme in the world
 Plug 'ap/vim-css-color'                                 " whenever you use rgba or hexcode in your scripts, this highlights the colourcode as that colour
 Plug 'preservim/nerdtree'                               " navigate with vim through your filetree
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'          " used with devicons but I don't know what for
 Plug 'ryanoasis/vim-devicons'                           " nerd fonts
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'          " used with devicons but I don't know what for
 "Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 Plug 'lervag/vimtex'                                    " Plugin to use latex in neovim; $ sudo apt install latexmk
+Plug 'yuttie/comfortable-motion.vim'                    " Plugin to make scrolling smoother. Have not installed this yet, check their configs later before installing
+" Plug 'jerome/myfirstplugin'                             " Plugin that we made ourselves, do not actually use it lol
 call plug#end()
 " ------------------------------------------------------------------
 "  VIM-PLUG END
@@ -95,7 +103,13 @@ nnoremap <leader>u :UndotreeShow<CR>
 " ripgrep to search for stuff"
 nnoremap <leader>ps :Rg<SPACE>
 
+" Go down visual lines when the :set wrap has been called, so mainly used in LaTex
+function! SetMovementsInLatex() abort
+    nnoremap <expr> j v:count ? 'j' : 'gj'
+    nnoremap <expr> k v:count ? 'k' : 'gk'
+endfunction
 
+autocmd BufNewFile,BufRead *.tex call SetMovementsInLatex()
 
 
 " ------------------------------------------------------------------
@@ -228,3 +242,18 @@ if !exists('g:ycm_semantic_triggers')
   let g:ycm_semantic_triggers = {}
 endif
 au VimEnter * let g:ycm_semantic_triggers.tex=g:vimtex#re#youcompleteme
+
+
+
+" ------------------------------------------------------------------
+" COMFORTABLE MOTION CONFIGURATION
+" ------------------------------------------------------------------
+"  https://github.com/yuttie/comfortable-motion.vim ; check for default mappings
+"  C-d and C-u are used for going up and down. 
+"  C-f is for going a full page up, C-b has been remapped to :Buffers. But generally I don't even use these so it does not matter
+"  Comfie motion is acive, but the default settings are in use and that's just fine
+let g:comfortable_motion_no_default_key_mappings = 1
+nnoremap <silent> <C-d> :call comfortable_motion#flick(100)<CR>
+nnoremap <silent> <C-u> :call comfortable_motion#flick(-100)<CR>
+"let g:comfortable_motion_friction = 20.0
+"let g:comfortable_motion_air_drag = 2.0
