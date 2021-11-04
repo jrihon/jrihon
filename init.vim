@@ -4,7 +4,7 @@
 "  | |_| |  __/ | | (_) | | | | | |  __/                  | | | | | | |_   _   \ V /| | | | | | |
 "   \___/ \___|_|  \___/|_| |_| |_|\___|                  |_|_| |_|_|\__| (_)   \_/ |_|_| |_| |_|
 " 
-"
+"                                                                               created with figlet
 filetype indent on
 syntax on
 set tabstop=4 softtabstop=4
@@ -24,9 +24,6 @@ set incsearch
 set laststatus=2
 set background=dark
 set encoding=UTF-8
-
-" If the current file we are working is, is a *.tex filetype, then set the wrap function on
-autocmd BufNewFile,BufRead *.tex set wrap
 
 let python_highlight_all = 1
 " let g:python_host_prog = '/usr/bin/python'
@@ -102,14 +99,31 @@ nnoremap <leader>nvim :e $HOME/.config/nvim/init.vim<CR>
 nnoremap <leader>u :UndotreeShow<CR>
 " ripgrep to search for stuff"
 nnoremap <leader>ps :Rg<SPACE>
-
+" Toggle the quickfix list open and closed
+nnoremap <leader>c :call QuickfixToggle()<cr>
 " Go down visual lines when the :set wrap has been called, so mainly used in LaTex
+autocmd BufNewFile,BufRead *.tex call SetMovementsInLatex()
+" If the current file we are working is, is a *.tex filetype, then set the wrap function on
+autocmd BufNewFile,BufRead *.tex set wrap
+
+
 function! SetMovementsInLatex() abort
     nnoremap <expr> j v:count ? 'j' : 'gj'
     nnoremap <expr> k v:count ? 'k' : 'gk'
 endfunction
 
-autocmd BufNewFile,BufRead *.tex call SetMovementsInLatex()
+
+" custom variable we make. This is to say that whenever the Quickfix list is open, we close it with the remap
+let b:quickfix_is_open = 1
+function! QuickfixToggle()
+    if b:quickfix_is_open
+        cclose
+        let b:quickfix_is_open = 0
+    else
+        copen
+        let b:quickfix_is_open = 1
+    endif
+endfunction
 
 
 " ------------------------------------------------------------------
