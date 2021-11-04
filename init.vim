@@ -242,9 +242,10 @@ let g:webdevicons_conceal_nerdtree_brackets = 1
 
 " For some reason, only the first one works on my PopOS!, whereas they all work on my Ubuntu
 let g:WebDevIconsUnicodeDecorateFileNodesDefaultSymbol = ' '
-"let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['pdf'] = 'PDF'
-"let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['gz'] = ' '
-"let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['sh'] = ' '
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {}
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['pdf'] = 'PDF'
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['gz'] = ' '
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['sh'] = ' '
 
 
 
