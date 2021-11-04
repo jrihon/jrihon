@@ -114,14 +114,14 @@ endfunction
 
 
 " custom variable we make. This is to say that whenever the Quickfix list is open, we close it with the remap
-let b:quickfix_is_open = 1
+let s:quickfix_is_open = 1
 function! QuickfixToggle()
-    if b:quickfix_is_open
+    if s:quickfix_is_open
         cclose
-        let b:quickfix_is_open = 0
+        let s:quickfix_is_open = 0
     else
         copen
-        let b:quickfix_is_open = 1
+        let s:quickfix_is_open = 1
     endif
 endfunction
 
