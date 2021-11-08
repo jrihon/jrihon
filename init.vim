@@ -43,8 +43,8 @@ Plug 'tmsvg/pear-tree'                                  " autcomplete pairs of b
 Plug 'junegunn/fzf.vim'                                 " fzf, don't know why it's in here twice
 Plug 'valloric/YouCompleteMe'                           " YouCompleteMe, autocomplete from buffer and programming lang
 Plug 'mbbill/undotree'                                  " whenever you save something, it goes to the undo directory
-Plug 'itchyny/lightline.vim'                            " the colored bar between the the buffer and the vim window
-Plug 'morhetz/gruvbox'                                  " the best colorscheme in the world
+Plug 'itchyny/lightline.vim'                            " Customize the status bar through this plugin
+Plug 'morhetz/gruvbox'                                  " the best colorscheme in the world --ThePrimeagen
 Plug 'ap/vim-css-color'                                 " whenever you use rgba or hexcode in your scripts, this highlights the colourcode as that colour
 Plug 'preservim/nerdtree'                               " navigate with vim through your filetree
 Plug 'ryanoasis/vim-devicons'                           " nerd fonts
@@ -52,7 +52,8 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'          " used with devicons but
 "Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 Plug 'lervag/vimtex'                                    " Plugin to use latex in neovim; $ sudo apt install latexmk
 Plug 'yuttie/comfortable-motion.vim'                    " Plugin to make scrolling smoother. Have not installed this yet, check their configs later before installing
-" Plug 'jerome/myfirstplugin'                             " Plugin that we made ourselves, do not actually use it lol
+Plug 'jerome/mutineer'                                  " Our own plugin does not need to be PlugInstall, like this it runs off the bat no problem, assuming there is a /nvim/plugged/mutineer
+"Plug 'jrihon/mutineer.vim'                              " 
 call plug#end()
 " ------------------------------------------------------------------
 "  VIM-PLUG END
@@ -69,10 +70,12 @@ call plug#end()
 " New leader key, used later when remapping "
 let mapleader = " "
 
+
 " Whenever a new split is created
 let g:netrw_browse_split=2
 let g:netrw_banner = 0
 let g:netrw_winsize = 25
+
 
 " -----------------------------------
 " WINDOW OR BUFFER RELATED REMAPS
@@ -88,10 +91,13 @@ nnoremap <leader>j :wincmd j<CR>
 nnoremap <silent> <Leader>+ :vertical resize +15<CR>
 nnoremap <silent> <Leader>- :vertical resize -15<CR>
 
+
 " -----------------------------------
 " Access specific files of my system
 nnoremap <leader>bash :e $HOME/.bashrc<CR>
 nnoremap <leader>nvim :e $HOME/.config/nvim/init.vim<CR>
+nnoremap <leader>so :source $HOME/.config/nvim/init.vim<CR>
+
 
 " -----------------------------------
 " MISSCELANIOUS
@@ -107,11 +113,11 @@ autocmd BufNewFile,BufRead *.tex call SetMovementsInLatex()
 autocmd BufNewFile,BufRead *.tex set wrap
 
 
+" Whenever I open a .tex filetype, remap the movement keys to jump visual lines
 function! SetMovementsInLatex() abort
     nnoremap <expr> j v:count ? 'j' : 'gj'
     nnoremap <expr> k v:count ? 'k' : 'gk'
 endfunction
-
 
 " custom variable we make. This is to say that whenever the Quickfix list is open, we close it with the remap
 let s:quickfix_is_open = 1
@@ -124,6 +130,14 @@ function! QuickfixToggle()
         let s:quickfix_is_open = 1
     endif
 endfunction
+
+
+" ------------------------------------------------------------------
+" MUTINEER CONFIGURATION
+" ------------------------------------------------------------------
+" normal mode and visual mode remap to allow single and multiline commenting
+nnoremap <leader>m :Mutineer<CR> 
+vnoremap <leader>m :Mutineer<CR> 
 
 
 " ------------------------------------------------------------------
@@ -194,7 +208,7 @@ nnoremap <silent> <Leader>gf :YcmCompleter FixIt<CR>
 
 
 " ------------------------------------------------------------------
-" LIGHTLINE CONFIG
+" LIGHTLINE CONFIGURATION
 " ------------------------------------------------------------------
 " check this video https://dev.to/jhooq/how-to-fix-github-permission-denied-publickey-fatal-could-not-read-from-remote-repository-1l5i
 let g:lightline = {
@@ -204,13 +218,12 @@ let g:lightline = {
       \             [ 'readonly', 'filename', 'modified', 'helloworld' ] ]
       \ },
       \ 'component': {
-      \   'helloworld': 'Hello, Jérôme!'
+      \   'helloworld': 'Hello, '. hostname() .'!'
       \ },
       \ }
 
 
-" Removes the middle parts of the lightline, so it looks like it is see through
-" https://github.com/itchyny/lightline.vim/issues/168
+" Removes the middle parts of the lightline, so it looks like it is see through;  https://github.com/itchyny/lightline.vim/issues/168
 let s:palette = g:lightline#colorscheme#{g:lightline.colorscheme}#palette
 let s:palette.normal.middle = [ [ 'NONE', 'NONE', 'NONE', 'NONE' ] ]
 let s:palette.inactive.middle = s:palette.normal.middle
@@ -223,29 +236,27 @@ let s:palette.tabline.middle = s:palette.normal.middle
 " ------------------------------------------------------------------
 " remap fzf ':Files' to call the function :Files. FZF to search in cwd or child directories
 nnoremap <C-p> :Files <CR>
-" remap fzf ':Buffers' function so we can acces whichever files are in our buffer
+" remap fzf ':Buffers' function so we can access whichever files are in our buffer
 nnoremap <C-b> :Buffers <CR>
 
 
 
 " ------------------------------------------------------------------
-" NERDTree CONFIGURATION
+" NERDTree CONFIGURATION / VIM DEV-ICONS
 " ------------------------------------------------------------------
 " verticalsplit a window and open the NERDTree, then resize it
 "nnoremap <leader>nw :vnew <bar> :Ex <bar> :vertical resize 90<CR> ----- " This line has been improved with the NERDTree plugin
 nnoremap <leader>nw :NERDTree <bar> :vertical resize 90<CR>
 
-" The following configurations are in conjuction with nerd fonts / dev-icons : 
-
 " The icons do not have brackets around them anymore in NERDTree
 let g:webdevicons_conceal_nerdtree_brackets = 1
 
-" For some reason, only the first one works on my PopOS!, whereas they all work on my Ubuntu
 let g:WebDevIconsUnicodeDecorateFileNodesDefaultSymbol = ' '
-let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {}
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {}  " initialise the dictionary here to then add the extensions
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['pdf'] = 'PDF'
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['gz'] = ' '
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['sh'] = ' '
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['vim'] = ''
 
 
 
@@ -253,6 +264,7 @@ let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['sh'] = ' '
 " VIMTEX CONFIGURATION
 " ------------------------------------------------------------------
 " Only this makes VimTex autocomplete. Found on ':help VimTex'
+" Uses YouCompleteMe
 if !exists('g:ycm_semantic_triggers')
   let g:ycm_semantic_triggers = {}
 endif
@@ -270,5 +282,9 @@ au VimEnter * let g:ycm_semantic_triggers.tex=g:vimtex#re#youcompleteme
 let g:comfortable_motion_no_default_key_mappings = 1
 nnoremap <silent> <C-d> :call comfortable_motion#flick(100)<CR>
 nnoremap <silent> <C-u> :call comfortable_motion#flick(-100)<CR>
-"let g:comfortable_motion_friction = 20.0
-"let g:comfortable_motion_air_drag = 2.0
+"                                                                                      __ _       
+"                                                                                     / _(_)_ __  
+"                                                                                    | |_| | '_ \ 
+"                                                                                    |  _| | | | |
+"                                                                                    |_| |_|_| |_|
+
