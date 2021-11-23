@@ -21,39 +21,41 @@ I work through static and dynamic modeling approaches, with the intent on making
 <br/>
 
 ## Skills
+Author of `jrihon/mutineer.vim` : Commenting in Vim made easier<br/>
 
 `python 3`\
-`shell scripting`\
 `(Neo)Vim`\
-`.dotfile configuration`\
 `LaTeX`
+`shell`\
+`.dotfile configuration`\
 <br/>
 <br/>
 
 ## .dotfiles
-<br/>
 
 The available .dotfiles are to be used in conjuction :<br/>
+<br/>
 ### Nvim
 The Vim plugin manager I use is the `vim-plug`, over at [junegunn/vim-plug](https://github.com/junegunn/vim-plug)
- - Open your terminal `mkdir ~/.config/nvim && mkdir ~/.config/nvim/plugged`
- - ` $ curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
- - Override your current `~/.config/nvim/init.vim` with the one from this repository.
- - Inside the Nvim buffer : `:source %` `:PlugInstall`<br/>
- - Do not forget to run the install.py from YouCompleteMe `cd ~/.config/nvim/plugged/YouCompleteMe && python3 install.py` with the flag (language configuration) you wish (check the README.md)
+1. Open your terminal `mkdir ~/.config/nvim && mkdir ~/.config/nvim/plugged`
+2. ` $ curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
+3. Override your current `~/.config/nvim/init.vim` with the one from this repository.
+4. Inside the Nvim buffer : `:source %`
+5. `:PlugInstall`<br/>
+6. Do not forget to run the install.py from YouCompleteMe `cd ~/.config/nvim/plugged/YouCompleteMe && python3 install.py` with the flag (language configuration) you wish (check the README.md)
 <!--
 ![alt text](https://github.com/jrihon/jrihon/blob/main/vim_configured_example.png)<br/>
 <br/>
 --><br/>
 ### Starship prompt
 The `Starship` prompt is available over at [Starship](https://starship.rs/)
- - ` $ sh -c "$(curl -fsSL https://starship.rs/install.sh)"`
- -  add `eval "$(starship init bash)"` to your `~/.bashrc`
- -` $ mkdir -p ~/.config && touch ~/.config/starship.toml` and override the newly created toml-file with the one from this repository.<br/><br/>
+1. ` $ sh -c "$(curl -fsSL https://starship.rs/install.sh)"`
+2.  add `eval "$(starship init bash)"` to your `~/.bashrc`
+3. ` $ mkdir -p ~/.config && touch ~/.config/starship.toml` and override the newly created toml-file with the one from this repository.<br/><br/>
 ### Nerd Fonts
 For the icons, I use the `nerd-fonts/patched-fonts/Hack/` font package from [ryanoasis/nerdfonts](https://github.com/ryanoasis/nerd-fonts).
- - Download them all manually (complete version) and open your terminal.
- - ` $ mkdir ~/.local/share/fonts && mv ~/Downloads/Hack* ~/.local/share/fonts/`<br/>
+ 1. Download them all manually (complete version) and open your terminal.
+ 2. ` $ mkdir ~/.local/share/fonts && mv ~/Downloads/Hack* ~/.local/share/fonts/`<br/>
 <!--
 ![alt text](https://github.com/jrihon/jrihon/blob/main/starship_configured_example1.png)<br/><br/>
 -->
@@ -62,6 +64,7 @@ Make sure you have a github account and a valid `~/.gitconfig` with at least you
 <br/>
 
 ## Acknowledgements
-This README.md has been written with the help of [readme.so](https://readme.so/)
+This README.md has been written with the help of [readme.so](https://readme.so/) and [iamcco/markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim)
 
   
+
