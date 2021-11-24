@@ -52,8 +52,9 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'          " used with devicons but
 "Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 Plug 'lervag/vimtex'                                    " Plugin to use latex in neovim; $ sudo apt install latexmk
 Plug 'yuttie/comfortable-motion.vim'                    " Plugin to make scrolling smoother. Have not installed this yet, check their configs later before installing
-Plug 'jerome/mutineer'                                  " Our own plugin does not need to be PlugInstall, like this it runs off the bat no problem, assuming there is a /nvim/plugged/mutineer
-"Plug 'jrihon/mutineer.vim'                              " 
+"Plug 'jerome/mutineer'                                  " Our own plugin does not need to be PlugInstall, like this it runs off the bat no problem, assuming there is a /nvim/plugged/mutineer
+Plug 'jrihon/mutineer.vim'                              " 
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 call plug#end()
 " ------------------------------------------------------------------
 "  VIM-PLUG END
@@ -121,7 +122,7 @@ endfunction
 
 " custom variable we make. This is to say that whenever the Quickfix list is open, we close it with the remap
 let s:quickfix_is_open = 1
-function! QuickfixToggle()
+function! QuickfixToggle() abort
     if s:quickfix_is_open
         cclose
         let s:quickfix_is_open = 0
@@ -138,6 +139,9 @@ endfunction
 " normal mode and visual mode remap to allow single and multiline commenting
 nnoremap <leader>m :Mutineer<CR> 
 vnoremap <leader>m :Mutineer<CR> 
+vnoremap <leader>M :MutineerBlock<CR> 
+
+let g:SpasticCursorMovementToggle = 1
 
 
 " ------------------------------------------------------------------
@@ -251,12 +255,27 @@ nnoremap <leader>nw :NERDTree <bar> :vertical resize 90<CR>
 " The icons do not have brackets around them anymore in NERDTree
 let g:webdevicons_conceal_nerdtree_brackets = 1
 
+" nerdtree-symbols
 let g:WebDevIconsUnicodeDecorateFileNodesDefaultSymbol = ' '
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {}  " initialise the dictionary here to then add the extensions
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['pdf'] = 'PDF'
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['gz'] = ' '
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['sh'] = ' '
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['vim'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['tex'] = 'TeX'
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['cpp'] = 'C'
+
+" nerdtree-highlighting
+let g:NERDTreeFileExtensionHighlightFullName = 1
+let g:NERDTreeExtensionHighlightColor = {} " this line is needed to avoid error
+let s:VIMgreen = "8FAA54"
+let s:PDFred = "FE405F"
+let s:MDblue = "44788E"
+let s:TEXlightGreen = "31B53E"
+let g:NERDTreeExtensionHighlightColor['vim'] = s:VIMgreen
+let g:NERDTreeExtensionHighlightColor['tex'] = s:TEXlightGreen
+let g:NERDTreeExtensionHighlightColor['pdf'] = s:PDFred
+let g:NERDTreeExtensionHighlightColor['md'] = s:MDblue
 
 
 
