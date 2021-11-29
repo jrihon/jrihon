@@ -1,4 +1,4 @@
-"       _                                                  _       _ _               _           
+
 "      | | ___ _ __ ___  _ __ ___   ___                   (_)_ __ (_) |_      __   _(_)_ __ ___  
 "   _  | |/ _ \ '__/ _ \| '_ ` _ \ / _ \                  | | '_ \| | __|     \ \ / / | '_ ` _ \ 
 "  | |_| |  __/ | | (_) | | | | | |  __/                  | | | | | | |_   _   \ V /| | | | | | |
@@ -121,16 +121,20 @@ function! SetMovementsInLatex() abort
 endfunction
 
 " custom variable we make. This is to say that whenever the Quickfix list is open, we close it with the remap
-let s:quickfix_is_open = 1
+let g:quickfix_is_open = 1
 function! QuickfixToggle() abort
-    if s:quickfix_is_open
+    if g:quickfix_is_open
         cclose
-        let s:quickfix_is_open = 0
+        let g:quickfix_is_open = 0
     else
         copen
-        let s:quickfix_is_open = 1
+        let g:quickfix_is_open = 1
     endif
 endfunction
+
+
+" Every time you write a .tex file, reset the variable to True, since this opens the QuickfixList all the time
+autocmd BufWrite *.tex let g:quickfix_is_open = 1
 
 
 " ------------------------------------------------------------------
@@ -142,6 +146,10 @@ vnoremap <leader>m :Mutineer<CR>
 vnoremap <leader>M :MutineerBlock<CR> 
 
 let g:SpasticCursorMovementToggle = 1
+let g:MutineerCommentSymbolDictionaryPerLanguageExtended = {}
+let g:MutineerCommentSymbolDictionaryPerLanguageBLOCKExtended = {}
+let g:MutineerCommentSymbolDictionaryPerLanguageBLOCKExtended["markdown"] = ["<!---", "", "--->"]
+let g:MutineerCommentSymbolDictionaryPerLanguageExtended["markdown"] = "@"
 
 
 " ------------------------------------------------------------------

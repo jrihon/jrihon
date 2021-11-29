@@ -1,9 +1,9 @@
 # The new prompt
 format = """
-[┌───── $username ───── ](bold #F8AACE)$directory$git_branch$python$cmd_duration
-[│](bold #F8AACE) $battery$time
-[│](bold #F8AACE)
-[](bold #F8AACE)$character"""
+[┌───── $username ───── ](bold #dd9b7b)$directory$git_branch$python$cmd_duration
+[│](bold #DD9B7B) $battery$time
+[│](bold #DD9B7B)
+[](bold #DD9B7B)$character"""
 
 
 
@@ -14,19 +14,19 @@ disabled = false
 
 # The symbol of a succesful command and an error command 
 [character]
-#success_symbol = "[ ](bold #f8aace)"
+#success_symbol = "[ ](bold #DD9B7B)"
 #error_symbol = "[ ](#DB425B) "
-success_symbol = "[\\$](bold #f8aace)"
+success_symbol = "[\\$](bold #DD9B7B)"
 error_symbol = "[X](bold #DB425B) "
 
 # Truncate the path of the directory to only the basename
 [directory]
-style = " bold #71D7F5"
-truncation_length = 1
+style = " bold #A4BDD5"
+truncation_length = 2
 
 # Show the username and divide the directory with a pipe symbol
 [username]
-style_user = "bold #F8AACE"
+style_user = "bold #DD9B7B"
 show_always = true
 style_root = "bold #E37534"
 #format = "[$user|]($style) - "
@@ -73,13 +73,13 @@ style = "#F8D50C"
 threshold = 85
 discharging_symbol = "  "
 charging_symbol = "  "
-style = "#88FA78"
+style = "#CCE019"
 
 [[battery.display]]
 threshold = 100
 charging_symbol = "  "
 discharging_symbol = "  "
-style = "#00FA19"
+style = "#CCE019"
 
 # Shows memory when threshold of 60% is in use
 [memory_usage]
