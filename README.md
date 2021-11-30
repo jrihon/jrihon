@@ -21,11 +21,11 @@ I work through static and dynamic modeling approaches, with the intent on making
 <br/>
 
 ## Skills
-Author of `jrihon/mutineer.vim` : Commenting in Vim made easier<br/>
+Author of `jrihon/mutineer.vim` : Commenting in Vim made easier [jrihon/mutineer.vim](https://github.com/jrihon/mutineer.vim)<br/>
 
 `python 3`\
 `(Neo)Vim`\
-`LaTeX`
+`LaTeX`\
 `shell`\
 `.dotfile configuration`\
 <br/>
