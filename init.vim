@@ -244,14 +244,15 @@ nnoremap <C-p> :Files <CR>
 nnoremap <C-b> :Buffers <CR>
 
 " DO THE FOLLOWING IF YOU WANT TO BE ABLE TO FIND HIDDEN FILES WHEN USING :Files 
+" -g : matching pattern (In this case "", which is empty or None)
+" --unrestricted : searches all filetypes except .gitignores, .ignore etc.
+" --depth : how far you can go with searching into your directories (in this case 3)
 " Add the following to your >> ~/.bashrc
 "     ## Fuzzy Finder
-"     export FZF_DEFAULT_COMMAND='ag -u -g ""'
+"     export FZF_DEFAULT_COMMAND='ag -g "" --depth 3 --unrestricted'
 "     export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
 
 " install the following "$ sudo apt install silversearcher-ag"
-"
-" That's it, you're done
 
 
 " ------------------------------------------------------------------
@@ -265,6 +266,10 @@ nnoremap <leader>nw :NERDTree <bar> :vertical resize 90<CR>
 "let g:NERDTreeShowHidden = 1
 " The icons do not have brackets around them anymore in NERDTree
 let g:webdevicons_conceal_nerdtree_brackets = 1
+
+" !!!!!!!!!!!!!
+" To toggle hidden files in NERDTree, the map setting (NERDTreeMapToggleHidden)  is defaulted as I ( shift + i)
+" !!!!!!!!!!!!!
 
 " nerdtree-symbols
 let g:WebDevIconsUnicodeDecorateFileNodesDefaultSymbol = ' '
