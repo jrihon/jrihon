@@ -243,12 +243,15 @@ nnoremap <C-p> :Files <CR>
 " remap fzf ':Buffers' function so we can access whichever files are in our buffer
 nnoremap <C-b> :Buffers <CR>
 
+" DO THE FOLLOWING IF YOU WANT TO BE ABLE TO FIND HIDDEN FILES WHEN USING :Files 
 " Add the following to your >> ~/.bashrc
-" ## Fuzzy Finder
-" export FZF_DEFAULT_COMMAND='ag -u -g ""'
-" export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
+"     ## Fuzzy Finder
+"     export FZF_DEFAULT_COMMAND='ag -u -g ""'
+"     export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
 
 " install the following "$ sudo apt install silversearcher-ag"
+"
+" That's it, you're done
 
 
 " ------------------------------------------------------------------
@@ -258,7 +261,7 @@ nnoremap <C-b> :Buffers <CR>
 "nnoremap <leader>nw :vnew <bar> :Ex <bar> :vertical resize 90<CR> ----- " This line has been improved with the NERDTree plugin
 nnoremap <leader>nw :NERDTree <bar> :vertical resize 90<CR>
 
-" Make hidden files visible
+" Make hidden files visible, this does make the filetree a bit bloated, so maybe we can create a Toggle for this
 "let g:NERDTreeShowHidden = 1
 " The icons do not have brackets around them anymore in NERDTree
 let g:webdevicons_conceal_nerdtree_brackets = 1
