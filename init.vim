@@ -1,4 +1,4 @@
-
+"       _                                                  _       _ _               _           
 "      | | ___ _ __ ___  _ __ ___   ___                   (_)_ __ (_) |_      __   _(_)_ __ ___  
 "   _  | |/ _ \ '__/ _ \| '_ ` _ \ / _ \                  | | '_ \| | __|     \ \ / / | '_ ` _ \ 
 "  | |_| |  __/ | | (_) | | | | | |  __/                  | | | | | | |_   _   \ V /| | | | | | |
@@ -39,8 +39,8 @@ Plug 'tpope/vim-fugitive'                               " Git plugin, not github
 "Plug 'vim-utils/vim-man'                                " View man pages in a vim-buffer. Grep for the man pages.
 "Plug 'kien/ctrlp.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }     " FuzzyFinder, works great!
+Plug 'junegunn/fzf.vim'                                 " fzf, has to be added
 Plug 'tmsvg/pear-tree'                                  " autcomplete pairs of brackets, quotes ...
-Plug 'junegunn/fzf.vim'                                 " fzf, don't know why it's in here twice
 Plug 'valloric/YouCompleteMe'                           " YouCompleteMe, autocomplete from buffer and programming lang
 Plug 'mbbill/undotree'                                  " whenever you save something, it goes to the undo directory
 Plug 'itchyny/lightline.vim'                            " Customize the status bar through this plugin
@@ -121,20 +121,16 @@ function! SetMovementsInLatex() abort
 endfunction
 
 " custom variable we make. This is to say that whenever the Quickfix list is open, we close it with the remap
-let g:quickfix_is_open = 1
+let s:quickfix_is_open = 1
 function! QuickfixToggle() abort
-    if g:quickfix_is_open
+    if s:quickfix_is_open
         cclose
-        let g:quickfix_is_open = 0
+        let s:quickfix_is_open = 0
     else
         copen
-        let g:quickfix_is_open = 1
+        let s:quickfix_is_open = 1
     endif
 endfunction
-
-
-" Every time you write a .tex file, reset the variable to True, since this opens the QuickfixList all the time
-autocmd BufWrite *.tex let g:quickfix_is_open = 1
 
 
 " ------------------------------------------------------------------
@@ -146,10 +142,6 @@ vnoremap <leader>m :Mutineer<CR>
 vnoremap <leader>M :MutineerBlock<CR> 
 
 let g:SpasticCursorMovementToggle = 1
-let g:MutineerCommentSymbolDictionaryPerLanguageExtended = {}
-let g:MutineerCommentSymbolDictionaryPerLanguageBLOCKExtended = {}
-let g:MutineerCommentSymbolDictionaryPerLanguageBLOCKExtended["markdown"] = ["<!---", "", "--->"]
-let g:MutineerCommentSymbolDictionaryPerLanguageExtended["markdown"] = "@"
 
 
 " ------------------------------------------------------------------
@@ -251,6 +243,12 @@ nnoremap <C-p> :Files <CR>
 " remap fzf ':Buffers' function so we can access whichever files are in our buffer
 nnoremap <C-b> :Buffers <CR>
 
+" Add the following to your >> ~/.bashrc
+" ## Fuzzy Finder
+" export FZF_DEFAULT_COMMAND='ag -u -g ""'
+" export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
+
+" install the following "$ sudo apt install silversearcher-ag"
 
 
 " ------------------------------------------------------------------
@@ -260,6 +258,8 @@ nnoremap <C-b> :Buffers <CR>
 "nnoremap <leader>nw :vnew <bar> :Ex <bar> :vertical resize 90<CR> ----- " This line has been improved with the NERDTree plugin
 nnoremap <leader>nw :NERDTree <bar> :vertical resize 90<CR>
 
+" Make hidden files visible
+"let g:NERDTreeShowHidden = 1
 " The icons do not have brackets around them anymore in NERDTree
 let g:webdevicons_conceal_nerdtree_brackets = 1
 
