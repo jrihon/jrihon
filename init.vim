@@ -121,9 +121,9 @@ function! SetMovementsInLatex() abort
 endfunction
 
 " custom variable we make. This is to say that whenever the Quickfix list is open, we close it with the remap
-let s:quickfix_is_open = 1
+autocmd BufWrite *.tex let s:quickfix_is_open = 1
 function! QuickfixToggle() abort
-    if s:quickfix_is_open
+    if s:quickfix_is_open == 1
         cclose
         let s:quickfix_is_open = 0
     else
@@ -131,6 +131,7 @@ function! QuickfixToggle() abort
         let s:quickfix_is_open = 1
     endif
 endfunction
+
 
 
 " ------------------------------------------------------------------
@@ -253,6 +254,11 @@ nnoremap <C-b> :Buffers <CR>
 "     export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
 
 " install the following "$ sudo apt install silversearcher-ag"
+if !executable("ag")
+    echo "install silversearcher-ag through :"
+    echo "$ sudo apt install silversearcher-ag"
+endif
+
 
 
 " ------------------------------------------------------------------
