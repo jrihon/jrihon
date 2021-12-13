@@ -1,0 +1,51 @@
+# The new prompt
+format = """ $character$time$directory$git_branch$python$cmd_duration """
+# right align is only configurable on zsh and fish
+add_newline = false
+
+# Break the new line at the start of the prompt
+[line_break]
+disabled = false
+
+
+# Replace the "❯" symbol in the prompt with "➜"
+[character]                            # The name of the module we are configuring is "character"
+success_symbol = "[➜ ](bold green)"     # The "success_symbol" segment is being set to "➜" with the color "bold green"
+error_symbol = "[➜ ](bold red)"     # The "success_symbol" segment is being set to "➜" with the color "bold green"
+
+# Disable the package module, hiding it from the prompt completely
+[package]
+disabled = true
+
+# Truncate the path of the directory to only the basename
+[directory]
+style = " bold #7bdef1"
+truncation_length = 2
+
+
+# Configures the python prompt
+[python]
+symbol = " "
+format = '[- ${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+
+# Configures the github prompt
+[git_branch]
+symbol = " "
+style = "#A779FF"
+format = "[| $symbol$branch]($style) "
+
+[git_status]
+disabled = true
+
+# Show the time in the command prompt
+[time]
+time_format = "%H:%M"
+format = "  $time ($style) "
+style = "bright-white"
+disabled = false
+
+[cmd_duration]
+min_time = 500
+style = "bold #98DEDE"
+format = "[   - $duration  ]($style)"
+show_milliseconds = false

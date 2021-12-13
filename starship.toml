@@ -1,9 +1,7 @@
 # The new prompt
 format = """
-[┌───── $username ───── ](bold #dd9b7b)$directory$git_branch$python$cmd_duration
-[│](bold #DD9B7B) $battery$time
-[│](bold #DD9B7B)
-[](bold #DD9B7B)$character"""
+[ $username ───── ](bold #bc9274)$directory$git_branch$python$cmd_duration | $time
+[ ](bold #bc9274)$character"""
 
 
 
@@ -16,17 +14,17 @@ disabled = false
 [character]
 #success_symbol = "[ ](bold #DD9B7B)"
 #error_symbol = "[ ](#DB425B) "
-success_symbol = "[\\$](bold #DD9B7B)"
+success_symbol = "[\\$](bold #bc9274)"
 error_symbol = "[X](bold #DB425B) "
 
 # Truncate the path of the directory to only the basename
 [directory]
-style = " bold #A4BDD5"
+style = " bold #7bdef1"
 truncation_length = 2
 
 # Show the username and divide the directory with a pipe symbol
 [username]
-style_user = "bold #DD9B7B"
+style_user = "bold #bc9274"
 show_always = true
 style_root = "bold #E37534"
 #format = "[$user|]($style) - "
@@ -41,8 +39,8 @@ show_milliseconds = false
 
 # Show the time in the command prompt
 [time]
-time_format = "%T"
-format = "🕙 $time($style) "
+time_format = "%H:%M"
+format = " $time($style) "
 style = "bright-white"
 disabled = false
 
