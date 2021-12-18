@@ -37,29 +37,33 @@ The available .dotfiles are to be used in conjuction :<br/>
 <br/>
 ### Nvim
 The Vim plugin manager I use is the `vim-plug`, over at [junegunn/vim-plug](https://github.com/junegunn/vim-plug)
-1. Open your terminal `mkdir ~/.config/nvim && mkdir ~/.config/nvim/plugged`
-2. ` $ curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
-3. Override your current `~/.config/nvim/init.vim` with the one from this repository.
-4. Inside the Nvim buffer : `:source %`
-5. `:PlugInstall`<br/>
-6. Do not forget to run the install.py from YouCompleteMe `cd ~/.config/nvim/plugged/YouCompleteMe && python3 install.py` with the flag (language configuration) you wish (check the README.md)
-<!--
-![alt text](https://github.com/jrihon/jrihon/blob/main/vim_configured_example.png)<br/>
+
+Do not forget to run the install.py from YouCompleteMe `cd ~/.config/nvim/plugged/YouCompleteMe && python3 install.py` with the flag (language configuration) you wish (check the README.md)
 <br/>
---><br/>
 ### Starship prompt
 The `Starship` prompt is available over at [Starship](https://starship.rs/)
-1. ` $ sh -c "$(curl -fsSL https://starship.rs/install.sh)"`
-2.  add `eval "$(starship init bash)"` to your `~/.bashrc`
-3. ` $ mkdir -p ~/.config && touch ~/.config/starship.toml` and override the newly created toml-file with the one from this repository.<br/><br/>
+
 ### Nerd Fonts
 For the icons, I use the `nerd-fonts/patched-fonts/Hack/` font package from [ryanoasis/nerdfonts](https://github.com/ryanoasis/nerd-fonts).
  1. Download them all manually (complete version) and open your terminal.
  2. ` $ mkdir ~/.local/share/fonts && mv ~/Downloads/Hack* ~/.local/share/fonts/`<br/>
-<!--
-![alt text](https://github.com/jrihon/jrihon/blob/main/starship_configured_example1.png)<br/><br/>
--->
 
+### TMUX
+
+I recommend installing bash-completion and adding a tmux completion tool `imomaliev/tmux-bash-completion` to it to make it faster to work with tmux.<br/> 
+I use tmux for a more rapid and easier workflow, to maintain the orientation of multiple projects at the same time. It is also much clearer than having several terminal tabs open.
+<br/>
+<br/>
+I use a different configured Starship command prompt when in tmux. To do so, add this to your ~/.bashrc. This assumes a separate `starship.toml` file in your .config directory.
+```sh
+# Initiliase starship prompt for tmux
+if [ -n "$TMUX" ]; then
+    export STARSHIP_CONFIG=~/.config/tmux_starship.toml
+fi
+```
+
+
+## GitHub config
 Make sure you have a github account and a valid `~/.gitconfig` with at least your username and email configured, in order to download automatically from the available repositories.<br/>
 <br/>
 
