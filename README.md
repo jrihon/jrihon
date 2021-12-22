@@ -54,6 +54,9 @@ I recommend installing bash-completion and adding a tmux completion tool `imomal
 I use tmux for a more rapid and easier workflow, to maintain the orientation of multiple projects at the same time. It is also much clearer than having several terminal tabs open.
 <br/>
 <br/>
+I use the tmux-plugin manager `github.com/tmux-plugins/tpm` and the tmux-resurrect `tmux-plugins/tmux-resurrect` to save session in between system restarts.
+<br/>
+<br/>
 I use a different configured Starship command prompt when in tmux. To do so, add this to your ~/.bashrc. This assumes a separate `starship.toml` file in your .config directory.
 ```sh
 # Initiliase starship prompt for tmux
