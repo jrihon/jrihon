@@ -243,6 +243,8 @@ let s:palette.tabline.middle = s:palette.normal.middle
 nnoremap <C-p> :Files <CR>
 " remap fzf ':Buffers' function so we can access whichever files are in our buffer
 nnoremap <C-b> :Buffers <CR>
+" remap the :Windows command to the :write command, since we never use :Windows and it is so annoying, since the ':' key is accessible through shift.
+command! -nargs=* W w       
 
 " DO THE FOLLOWING IF YOU WANT TO BE ABLE TO FIND HIDDEN FILES WHEN USING :Files 
 " -g : matching pattern (In this case "", which is empty or None)
@@ -254,6 +256,7 @@ nnoremap <C-b> :Buffers <CR>
 "     export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
 
 " install the following "$ sudo apt install silversearcher-ag"
+" If ag is not installed yet, prompt a message to install it whenever vim is opened
 if !executable("ag")
     echo "install silversearcher-ag through :"
     echo "$ sudo apt install silversearcher-ag"
