@@ -65,9 +65,7 @@ fi
 ```
 <br/> 
 <br/>
-## GitHub config
-Make sure you have a github account and a valid `~/.gitconfig` with at least your username and email configured, in order to download automatically from the available repositories.<br/>
-<br/>
+
 
 ## Acknowledgements
 This README.md has been written with the help of [readme.so](https://readme.so/) and [iamcco/markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim)
