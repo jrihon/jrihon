@@ -14,10 +14,7 @@ My main focus is on the computational characterisation of nucleic acids and prot
 
 I work through static and dynamic modeling approaches, with the intent on making biological systems suitable by predicting the viability of said systems.
 
-### Online presence 
-[<img align="left" alt="jrihon" width="22px" src="https://github.com/jrihon/jrihon/blob/main/README.SVG/orcid.svg"/>] 
-[<img align="left" alt="jrihon" width="22px" src="https://github.com/jrihon/jrihon/blob/main/README.SVG/microsoftacademic.svg"/>] 
-
+## Online presence 
  - [ORCID](https://orcid.org/0000-0002-9207-1556)
  - [LinkedIn](www.linkedin.com/in/jérôme-rihon)
  - [Bibliography - Published Work](http://lirias.kuleuven.be/cv?Username=U0141262)
@@ -25,7 +22,9 @@ I work through static and dynamic modeling approaches, with the intent on making
 
 ## Skills
 Author of `jrihon/mutineer.vim` : Commenting in Vim made easier [jrihon/mutineer.vim](https://github.com/jrihon/mutineer.vim)<br/>
-
+![Simplifies commenting and uncommenting lines of code](https://github.com/jrihon/mutineer.vim/blob/main/doc/mutineer_banner/mutineer.gif)
+<br />
+<br />
 `python 3`\
 `(Neo)Vim`\
 `LaTeX`\
@@ -36,23 +35,18 @@ Author of `jrihon/mutineer.vim` : Commenting in Vim made easier [jrihon/mutineer
 
 ## .dotfiles
 
-The available .dotfiles are to be used in conjuction :<br/>
-<br/>
 ### Nvim
-[<img align="left" alt="jrihon" width="22px" style="#57A143" src="https://github.com/jrihon/jrihon/blob/main/README.SVG/microsoftacademic.svg"/>] 
-
 The Vim plugin manager I use is the `vim-plug`, over at [junegunn/vim-plug](https://github.com/junegunn/vim-plug)
-
+<br/>
 Do not forget to run the install.py from YouCompleteMe `cd ~/.config/nvim/plugged/YouCompleteMe && python3 install.py` with the flag (language configuration) you wish (check the README.md)
+<br/> 
 <br/>
 ### Starship prompt
 The `Starship` prompt is available over at [Starship](https://starship.rs/)
 
-### Nerd Fonts
-For the icons, I use the `nerd-fonts/patched-fonts/Hack/` font package from [ryanoasis/nerdfonts](https://github.com/ryanoasis/nerd-fonts).
- 1. Download them all manually (complete version) and open your terminal.
- 2. ` $ mkdir ~/.local/share/fonts && mv ~/Downloads/Hack* ~/.local/share/fonts/`<br/>
-
+I use two different prompts. One for everyday and one for when I am inside tmux. This to not confuse my workflow and to make me aware I am working inside tmux.
+<br/> 
+<br/>
 ### TMUX
 
 I recommend installing bash-completion and adding a tmux completion tool `imomaliev/tmux-bash-completion` to it to make it faster to work with tmux.<br/> 
@@ -69,8 +63,8 @@ if [ -n "$TMUX" ]; then
     export STARSHIP_CONFIG=~/.config/tmux_starship.toml
 fi
 ```
-
-
+<br/> 
+<br/>
 ## GitHub config
 Make sure you have a github account and a valid `~/.gitconfig` with at least your username and email configured, in order to download automatically from the available repositories.<br/>
 <br/>
