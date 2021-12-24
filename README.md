@@ -15,7 +15,10 @@ My main focus is on the computational characterisation of nucleic acids and prot
 I work through static and dynamic modeling approaches, with the intent on making biological systems suitable by predicting the viability of said systems.
 
 ### Online presence 
- - [<img align="left" alt="jrihon" width="22px" src="https://github.com/jrihon/jrihon/blob/main/README.SVG/orcid.svg"/>][ORCID](https://orcid.org/0000-0002-9207-1556)
+[<img align="left" alt="jrihon" width="22px" src="https://github.com/jrihon/jrihon/blob/main/README.SVG/orcid.svg"/>] 
+[<img align="left" alt="jrihon" width="22px" src="https://github.com/jrihon/jrihon/blob/main/README.SVG/microsoftacademic.svg"/>] 
+
+ - [ORCID](https://orcid.org/0000-0002-9207-1556)
  - [LinkedIn](www.linkedin.com/in/jérôme-rihon)
  - [Bibliography - Published Work](http://lirias.kuleuven.be/cv?Username=U0141262)
 <br/>
@@ -36,6 +39,8 @@ Author of `jrihon/mutineer.vim` : Commenting in Vim made easier [jrihon/mutineer
 The available .dotfiles are to be used in conjuction :<br/>
 <br/>
 ### Nvim
+[<img align="left" alt="jrihon" width="22px" style="#57A143" src="https://github.com/jrihon/jrihon/blob/main/README.SVG/microsoftacademic.svg"/>] 
+
 The Vim plugin manager I use is the `vim-plug`, over at [junegunn/vim-plug](https://github.com/junegunn/vim-plug)
 
 Do not forget to run the install.py from YouCompleteMe `cd ~/.config/nvim/plugged/YouCompleteMe && python3 install.py` with the flag (language configuration) you wish (check the README.md)
