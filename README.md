@@ -14,7 +14,7 @@ My main focus is on the computational characterisation of nucleic acids and prot
 
 I work through static and dynamic modeling approaches, with the intent on making biological systems suitable by predicting the viability of said systems.
 
-### Online presence
+### Online presence [<width="22px" src="https://github.com/jrihon/jrihon/blob/main/README.SVG/orcid.svg">]
  - [ORCID](https://orcid.org/0000-0002-9207-1556)
  - [LinkedIn](www.linkedin.com/in/jérôme-rihon)
  - [Bibliography - Published Work](http://lirias.kuleuven.be/cv?Username=U0141262)
