@@ -34,10 +34,9 @@ let python_highlight_all = 1
 "  VIM-PLUG BEGIN
 " ------------------------------------------------------------------
 call plug#begin('~/.config/nvim/plugged')
-Plug 'jremmen/vim-ripgrep'                              " I do not even use this anymore
-Plug 'tpope/vim-fugitive'                               " Git plugin, not github
+Plug 'jremmen/vim-ripgrep'                              " Search for words in files of the cwd, works really well!
+Plug 'tpope/vim-fugitive'                               " Git plugin, to flow better with vim
 "Plug 'vim-utils/vim-man'                                " View man pages in a vim-buffer. Grep for the man pages.
-"Plug 'kien/ctrlp.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }     " FuzzyFinder, works great!
 Plug 'junegunn/fzf.vim'                                 " fzf, has to be added
 Plug 'tmsvg/pear-tree'                                  " autcomplete pairs of brackets, quotes ...
@@ -50,16 +49,17 @@ Plug 'preservim/nerdtree'                               " navigate with vim thro
 Plug 'ryanoasis/vim-devicons'                           " nerd fonts
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'          " used with devicons but I don't know what for
 "Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
-Plug 'lervag/vimtex'                                    " Plugin to use latex in neovim; $ sudo apt install latexmk
+Plug 'lervag/vimtex'                                    " Plugin to use latex in neovim
 Plug 'yuttie/comfortable-motion.vim'                    " Plugin to make scrolling smoother. Have not installed this yet, check their configs later before installing
 "Plug 'jerome/mutineer'                                  " Our own plugin does not need to be PlugInstall, like this it runs off the bat no problem, assuming there is a /nvim/plugged/mutineer
-Plug 'jrihon/mutineer.vim'                              " 
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'jrihon/mutineer.vim'                              " Makes (un)commenting smoother!
+Plug 'jrihon/uwu.vim'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']} "MarkDownPreview when writing a .md file 
 call plug#end()
 " ------------------------------------------------------------------
 "  VIM-PLUG END
 " ------------------------------------------------------------------
-
+let g:SOURCEFILE = "~/.config/nvim/init.vim"
 
 " ------------------------------------------------------------------
 " BUNCH OF REMAPS "
@@ -91,12 +91,16 @@ nnoremap <leader>j :wincmd j<CR>
 " resize the window manually "
 nnoremap <silent> <Leader>+ :vertical resize +15<CR>
 nnoremap <silent> <Leader>- :vertical resize -15<CR>
+" whenever you open a new vertical split, open a new file in the new split
+"   Requires the FZF plugin
+nnoremap <silent> <Leader>vs :vsplit <Bar> :wincmd l <Bar> :Files <CR>
 
 
 " -----------------------------------
 " Access specific files of my system
 nnoremap <leader>bash :e $HOME/.bashrc<CR>
 nnoremap <leader>nvim :e $HOME/.config/nvim/init.vim<CR>
+nnoremap <leader>tmux :e $HOME/.tmux.conf<CR>
 nnoremap <leader>so :source $HOME/.config/nvim/init.vim<CR>
 
 
@@ -118,12 +122,14 @@ autocmd BufNewFile,BufRead *.tex set wrap
 function! SetMovementsInLatex() abort
     nnoremap <expr> j v:count ? 'j' : 'gj'
     nnoremap <expr> k v:count ? 'k' : 'gk'
+    vnoremap <expr> j v:count ? 'j' : 'gj'
+    vnoremap <expr> k v:count ? 'k' : 'gk'
 endfunction
 
 " custom variable we make. This is to say that whenever the Quickfix list is open, we close it with the remap
 autocmd BufWrite *.tex let s:quickfix_is_open = 1
 function! QuickfixToggle() abort
-    if s:quickfix_is_open == 1
+    if s:quickfix_is_open
         cclose
         let s:quickfix_is_open = 0
     else
@@ -131,7 +137,6 @@ function! QuickfixToggle() abort
         let s:quickfix_is_open = 1
     endif
 endfunction
-
 
 
 " ------------------------------------------------------------------
@@ -187,6 +192,8 @@ set guifont=Hack\ Nerd\ Font\ Complete\ 11
 " ------------------------------------------------------------------
 " RIPGREP CONFIGURATION
 " ------------------------------------------------------------------
+" $ sudo apt install ripgrep
+" to get this plugin to work
 if executable('rg')
     let g:rg_derive_root='true'
 endif
@@ -243,8 +250,9 @@ let s:palette.tabline.middle = s:palette.normal.middle
 nnoremap <C-p> :Files <CR>
 " remap fzf ':Buffers' function so we can access whichever files are in our buffer
 nnoremap <C-b> :Buffers <CR>
-" remap the :Windows command to the :write command, since we never use :Windows and it is so annoying, since the ':' key is accessible through shift.
-command! -nargs=* W w       
+" disable the :Windows command because I hate it when I shift+w inadvertedly when I just want to write to the buffer
+" This actually maps the :W to :write !!
+command! -nargs=* W w
 
 " DO THE FOLLOWING IF YOU WANT TO BE ABLE TO FIND HIDDEN FILES WHEN USING :Files 
 " -g : matching pattern (In this case "", which is empty or None)
@@ -256,13 +264,10 @@ command! -nargs=* W w
 "     export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
 
 " install the following "$ sudo apt install silversearcher-ag"
-" If ag is not installed yet, prompt a message to install it whenever vim is opened
 if !executable("ag")
     echo "install silversearcher-ag through :"
     echo "$ sudo apt install silversearcher-ag"
 endif
-
-
 
 " ------------------------------------------------------------------
 " NERDTree CONFIGURATION / VIM DEV-ICONS
@@ -275,6 +280,7 @@ nnoremap <leader>nw :NERDTree <bar> :vertical resize 90<CR>
 "let g:NERDTreeShowHidden = 1
 " The icons do not have brackets around them anymore in NERDTree
 let g:webdevicons_conceal_nerdtree_brackets = 1
+let g:webdevicons_enable = 1
 
 " !!!!!!!!!!!!!
 " To toggle hidden files in NERDTree, the map setting (NERDTreeMapToggleHidden)  is defaulted as I ( shift + i)
@@ -283,7 +289,7 @@ let g:webdevicons_conceal_nerdtree_brackets = 1
 " nerdtree-symbols
 let g:WebDevIconsUnicodeDecorateFileNodesDefaultSymbol = ' '
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {}  " initialise the dictionary here to then add the extensions
-let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['pdf'] = 'PDF'
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['pdf'] = ''
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['gz'] = ' '
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['sh'] = ' '
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['vim'] = ''
@@ -293,7 +299,7 @@ let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['cpp'] = 'C'
 " nerdtree-highlighting
 let g:NERDTreeFileExtensionHighlightFullName = 1
 let g:NERDTreeExtensionHighlightColor = {} " this line is needed to avoid error
-let s:VIMgreen = "8FAA54"
+let s:VIMgreen = "019733"
 let s:PDFred = "FE405F"
 let s:MDblue = "44788E"
 let s:TEXlightGreen = "31B53E"
@@ -308,6 +314,9 @@ let g:NERDTreeExtensionHighlightColor['md'] = s:MDblue
 " VIMTEX CONFIGURATION
 " ------------------------------------------------------------------
 " Only this makes VimTex autocomplete. Found on ':help VimTex'
+"
+"$ sudo apt install latexmk
+"
 " Uses YouCompleteMe
 if !exists('g:ycm_semantic_triggers')
   let g:ycm_semantic_triggers = {}
