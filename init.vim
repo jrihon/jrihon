@@ -50,8 +50,7 @@ Plug 'ryanoasis/vim-devicons'                           " nerd fonts
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'          " used with devicons but I don't know what for
 "Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 Plug 'lervag/vimtex'                                    " Plugin to use latex in neovim
-Plug 'yuttie/comfortable-motion.vim'                    " Plugin to make scrolling smoother. Have not installed this yet, check their configs later before installing
-"Plug 'jerome/mutineer'                                  " Our own plugin does not need to be PlugInstall, like this it runs off the bat no problem, assuming there is a /nvim/plugged/mutineer
+Plug 'yuttie/comfortable-motion.vim'                    " Plugin to make scrolling smoother.
 Plug 'jrihon/mutineer.vim'                              " Makes (un)commenting smoother!
 Plug 'jrihon/uwu.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']} "MarkDownPreview when writing a .md file 
@@ -92,7 +91,7 @@ nnoremap <leader>j :wincmd j<CR>
 nnoremap <silent> <Leader>+ :vertical resize +15<CR>
 nnoremap <silent> <Leader>- :vertical resize -15<CR>
 " whenever you open a new vertical split, open a new file in the new split
-"   Requires the FZF plugin
+" The ':Files' command requires the FZF plugin
 nnoremap <silent> <Leader>vs :vsplit <Bar> :wincmd l <Bar> :Files <CR>
 
 
@@ -200,16 +199,6 @@ endif
 
 
 
-" ------------------------------------------------------------------
-"  CTRL-P CONFIGURATION
-" ------------------------------------------------------------------
-" ignore searches in ctrlp "
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-" ag is fast enough that CtrlP doesn't need to cach "
-" let g:ctrlp_use_caching = 0
-
-
-
 " -----------------------------------
 " YOUCOMPLETEME CONFIGURATION
 " -----------------------------------
@@ -268,6 +257,8 @@ if !executable("ag")
     echo "install silversearcher-ag through :"
     echo "$ sudo apt install silversearcher-ag"
 endif
+
+
 
 " ------------------------------------------------------------------
 " NERDTree CONFIGURATION / VIM DEV-ICONS
