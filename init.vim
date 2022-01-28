@@ -34,9 +34,10 @@ let python_highlight_all = 1
 "  VIM-PLUG BEGIN
 " ------------------------------------------------------------------
 call plug#begin('~/.config/nvim/plugged')
-Plug 'jremmen/vim-ripgrep'                              " Search for words in files of the cwd, works really well!
-Plug 'tpope/vim-fugitive'                               " Git plugin, to flow better with vim
+Plug 'jremmen/vim-ripgrep'                              " I do not even use this anymore
+Plug 'tpope/vim-fugitive'                               " Git plugin, not github
 "Plug 'vim-utils/vim-man'                                " View man pages in a vim-buffer. Grep for the man pages.
+"Plug 'kien/ctrlp.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }     " FuzzyFinder, works great!
 Plug 'junegunn/fzf.vim'                                 " fzf, has to be added
 Plug 'tmsvg/pear-tree'                                  " autcomplete pairs of brackets, quotes ...
@@ -49,16 +50,19 @@ Plug 'preservim/nerdtree'                               " navigate with vim thro
 Plug 'ryanoasis/vim-devicons'                           " nerd fonts
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'          " used with devicons but I don't know what for
 "Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
-Plug 'lervag/vimtex'                                    " Plugin to use latex in neovim
-Plug 'yuttie/comfortable-motion.vim'                    " Plugin to make scrolling smoother.
-Plug 'jrihon/mutineer.vim'                              " Makes (un)commenting smoother!
+Plug 'lervag/vimtex'                                    " Plugin to use latex in neovim; $ sudo apt install latexmk
+Plug 'yuttie/comfortable-motion.vim'                    " Plugin to make scrolling smoother. Have not installed this yet, check their configs later before installing
+"Plug 'jerome/mutineer'                                  " Our own plugin does not need to be PlugInstall, like this it runs off the bat no problem, assuming there is a /nvim/plugged/mutineer
+Plug 'jrihon/mutineer.vim'                              " 
 Plug 'jrihon/uwu.vim'
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']} "MarkDownPreview when writing a .md file 
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'grimme-lab/orca.vim'                              " syntax detection for orca input filetypes
+Plug 'akinsho/toggleterm.nvim'                          " Toggle a floating terminal
 call plug#end()
 " ------------------------------------------------------------------
 "  VIM-PLUG END
 " ------------------------------------------------------------------
-let g:SOURCEFILE = "~/.config/nvim/init.vim"
+
 
 " ------------------------------------------------------------------
 " BUNCH OF REMAPS "
@@ -90,9 +94,6 @@ nnoremap <leader>j :wincmd j<CR>
 " resize the window manually "
 nnoremap <silent> <Leader>+ :vertical resize +15<CR>
 nnoremap <silent> <Leader>- :vertical resize -15<CR>
-" whenever you open a new vertical split, open a new file in the new split
-" The ':Files' command requires the FZF plugin
-nnoremap <silent> <Leader>vs :vsplit <Bar> :wincmd l <Bar> :Files <CR>
 
 
 " -----------------------------------
@@ -111,24 +112,35 @@ nnoremap <leader>u :UndotreeShow<CR>
 nnoremap <leader>ps :Rg<SPACE>
 " Toggle the quickfix list open and closed
 nnoremap <leader>c :call QuickfixToggle()<cr>
+" Copy Visual Selection to system's clipboard. requires 'xclip'
+vnoremap <leader>pp :%w !xclip -selection clipboard<CR><CR> :echo "Selection clipped!"<CR>
+autocmd BufNewFile,BufRead * call XclipExists()
 " Go down visual lines when the :set wrap has been called, so mainly used in LaTex
 autocmd BufNewFile,BufRead *.tex call SetMovementsInLatex()
 " If the current file we are working is, is a *.tex filetype, then set the wrap function on
 autocmd BufNewFile,BufRead *.tex set wrap
+autocmd BufNewFile,BufRead *.tex set linebreak
+"when you open a new vertical split, move the cursor automatically to that new file
+nnoremap <silent> <leader>vs :vsplit<bar>:wincmd l<bar>:Files<CR>
 
 
 " Whenever I open a .tex filetype, remap the movement keys to jump visual lines
 function! SetMovementsInLatex() abort
     nnoremap <expr> j v:count ? 'j' : 'gj'
     nnoremap <expr> k v:count ? 'k' : 'gk'
-    vnoremap <expr> j v:count ? 'j' : 'gj'
-    vnoremap <expr> k v:count ? 'k' : 'gk'
+endfunction
+
+" Call for whenever we use the <leader>pp remap and the system does not include xclip
+function! XclipExists() abort
+    if !executable("xclip")
+        echom "You need to install xclip in order to copy to clipboard!"
+    endif
 endfunction
 
 " custom variable we make. This is to say that whenever the Quickfix list is open, we close it with the remap
 autocmd BufWrite *.tex let s:quickfix_is_open = 1
 function! QuickfixToggle() abort
-    if s:quickfix_is_open
+    if s:quickfix_is_open == 1
         cclose
         let s:quickfix_is_open = 0
     else
@@ -147,7 +159,6 @@ vnoremap <leader>m :Mutineer<CR>
 vnoremap <leader>M :MutineerBlock<CR> 
 
 let g:SpasticCursorMovementToggle = 1
-
 
 " ------------------------------------------------------------------
 " TREESITTER CONFIGURATION
@@ -191,11 +202,19 @@ set guifont=Hack\ Nerd\ Font\ Complete\ 11
 " ------------------------------------------------------------------
 " RIPGREP CONFIGURATION
 " ------------------------------------------------------------------
-" $ sudo apt install ripgrep
-" to get this plugin to work
 if executable('rg')
     let g:rg_derive_root='true'
 endif
+
+
+
+" ------------------------------------------------------------------
+"  CTRL-P CONFIGURATION
+" ------------------------------------------------------------------
+" ignore searches in ctrlp "
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+" ag is fast enough that CtrlP doesn't need to cach "
+" let g:ctrlp_use_caching = 0
 
 
 
@@ -239,8 +258,8 @@ let s:palette.tabline.middle = s:palette.normal.middle
 nnoremap <C-p> :Files <CR>
 " remap fzf ':Buffers' function so we can access whichever files are in our buffer
 nnoremap <C-b> :Buffers <CR>
-" disable the :Windows command because I hate it when I shift+w inadvertedly when I just want to write to the buffer
-" This actually maps the :W to :write !!
+" remap the :Windows command to the :write command, since we never use :Windows and it is so annoying, since the ':' key is accessible through shift.
+command! -nargs=* Q q
 command! -nargs=* W w
 
 " DO THE FOLLOWING IF YOU WANT TO BE ABLE TO FIND HIDDEN FILES WHEN USING :Files 
@@ -253,10 +272,13 @@ command! -nargs=* W w
 "     export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
 
 " install the following "$ sudo apt install silversearcher-ag"
+" If ag is not installed yet, prompt a message to install it whenever vim is opened
 if !executable("ag")
     echo "install silversearcher-ag through :"
     echo "$ sudo apt install silversearcher-ag"
 endif
+
+
 
 
 
@@ -271,7 +293,6 @@ nnoremap <leader>nw :NERDTree <bar> :vertical resize 90<CR>
 "let g:NERDTreeShowHidden = 1
 " The icons do not have brackets around them anymore in NERDTree
 let g:webdevicons_conceal_nerdtree_brackets = 1
-let g:webdevicons_enable = 1
 
 " !!!!!!!!!!!!!
 " To toggle hidden files in NERDTree, the map setting (NERDTreeMapToggleHidden)  is defaulted as I ( shift + i)
@@ -280,7 +301,7 @@ let g:webdevicons_enable = 1
 " nerdtree-symbols
 let g:WebDevIconsUnicodeDecorateFileNodesDefaultSymbol = ' '
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {}  " initialise the dictionary here to then add the extensions
-let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['pdf'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['pdf'] = 'PDF'
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['gz'] = ' '
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['sh'] = ' '
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['vim'] = ''
@@ -290,7 +311,7 @@ let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['cpp'] = 'C'
 " nerdtree-highlighting
 let g:NERDTreeFileExtensionHighlightFullName = 1
 let g:NERDTreeExtensionHighlightColor = {} " this line is needed to avoid error
-let s:VIMgreen = "019733"
+let s:VIMgreen = "8FAA54"
 let s:PDFred = "FE405F"
 let s:MDblue = "44788E"
 let s:TEXlightGreen = "31B53E"
@@ -305,9 +326,6 @@ let g:NERDTreeExtensionHighlightColor['md'] = s:MDblue
 " VIMTEX CONFIGURATION
 " ------------------------------------------------------------------
 " Only this makes VimTex autocomplete. Found on ':help VimTex'
-"
-"$ sudo apt install latexmk
-"
 " Uses YouCompleteMe
 if !exists('g:ycm_semantic_triggers')
   let g:ycm_semantic_triggers = {}
@@ -326,6 +344,59 @@ au VimEnter * let g:ycm_semantic_triggers.tex=g:vimtex#re#youcompleteme
 let g:comfortable_motion_no_default_key_mappings = 1
 nnoremap <silent> <C-d> :call comfortable_motion#flick(100)<CR>
 nnoremap <silent> <C-u> :call comfortable_motion#flick(-100)<CR>
+
+
+
+" ------------------------------------------------------------------
+" ORCA.VIM
+" ------------------------------------------------------------------
+autocmd BufRead,BufNewFile *.inp set filetype=orca
+
+
+
+
+" ------------------------------------------------------------------
+" TOGGLETERM.NVIM ----- LUA CONFIG
+" ------------------------------------------------------------------
+lua <<EOF
+require("toggleterm").setup{
+  -- size can be a number or function which is passed the current terminal
+  size = 20,
+  open_mapping = [[<C-\>]],
+  -- on_open = fun(t: Terminal), -- function to run when the terminal opens
+  -- on_close = fun(t: Terminal), -- function to run when the terminal closes
+  hide_numbers = true, -- hide the number column in toggleterm buffers
+  shade_filetypes = {},
+  shade_terminals = true,
+  shading_factor = '1', -- the degree by which to darken to terminal colour, default: 1 for dark backgrounds, 3 for light
+  start_in_insert = true,
+  insert_mappings = true, -- whether or not the open mapping applies in insert mode
+  persist_size = true,
+  direction = 'float', -- 'vertical' | 'horizontal' | 'window' | 'float'
+  close_on_exit = true, -- close the terminal window when the process exits
+  shell = vim.o.shell, -- change the default shell
+  -- This field is only relevant if direction is set to 'float'
+  float_opts = {
+    -- The border key is *almost* the same as 'nvim_open_win'
+    -- see :h nvim_open_win for details on borders however
+    -- the 'curved' border is a custom border type
+    -- not natively supported but implemented in this plugin.
+    border = 'curved', -- 'single' | 'double' | 'curved' 
+    width = 160,
+    height = 40,
+    winblend = 0,
+    highlights = {
+     border = "Normal",
+     background = "Normal",
+    }
+  }
+}
+EOF
+
+
+
+
+"
 "                                                                                      __ _       
 "                                                                                     / _(_)_ __  
 "                                                                                    | |_| | '_ \ 
