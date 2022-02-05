@@ -66,6 +66,13 @@ fi
 <br/> 
 <br/>
 
+## Query PDF
+I friend of mine came up with an easy way to query pdf files from anywhere in his system (mainly articles for his thesis).<br/>
+Highly recommend to go and check it out.<br/>
+This method assumes you have `fzf` installed.<br/>
+I am putting up the method on my repo, but I am by no means the author. All credits go to him.
+
+The directory has a readme detailing how to use it and how to bind the scripts to keys for quick shortcuts.
 
 ## Acknowledgements
 This README.md has been written with the help of [readme.so](https://readme.so/) and [iamcco/markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim)
