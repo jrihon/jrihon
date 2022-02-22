@@ -58,6 +58,7 @@ Plug 'jrihon/uwu.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'grimme-lab/orca.vim'                              " syntax detection for orca input filetypes
 Plug 'akinsho/toggleterm.nvim'                          " Toggle a floating terminal
+Plug 'junegunn/goyo.vim'                                " Easy reading of text in :Goyo mode
 call plug#end()
 " ------------------------------------------------------------------
 "  VIM-PLUG END
@@ -128,6 +129,8 @@ nnoremap <silent> <leader>vs :vsplit<bar>:wincmd l<bar>:Files<CR>
 function! SetMovementsInLatex() abort
     nnoremap <expr> j v:count ? 'j' : 'gj'
     nnoremap <expr> k v:count ? 'k' : 'gk'
+    vnoremap <expr> j v:count ? 'j' : 'gj'
+    vnoremap <expr> k v:count ? 'k' : 'gk'
 endfunction
 
 " Call for whenever we use the <leader>pp remap and the system does not include xclip
@@ -138,7 +141,7 @@ function! XclipExists() abort
 endfunction
 
 " custom variable we make. This is to say that whenever the Quickfix list is open, we close it with the remap
-autocmd BufWrite *.tex let s:quickfix_is_open = 1
+autocmd BufEnter *.tex let s:quickfix_is_open = 1
 function! QuickfixToggle() abort
     if s:quickfix_is_open == 1
         cclose
@@ -394,6 +397,13 @@ require("toggleterm").setup{
 EOF
 
 
+
+
+" ------------------------------------------------------------------
+" GOYO.VIM
+" ------------------------------------------------------------------
+
+let g:goyo_width = 160
 
 
 "
