@@ -14,7 +14,7 @@ Settings > Customize Shortcuts > Custom Shortcuts > Add Custom Shortcuts
 
 
 # How to use
-`* chmod a+x SCRIPT`
+`$ chmod a+x SCRIPT`
 Add executable permissions to the scripts in order for them to work.
 
 `Super + I` generates a terminal with a list of all the pdf names in the current searched path
