@@ -14,6 +14,9 @@ Settings > Customize Shortcuts > Custom Shortcuts > Add Custom Shortcuts
 
 
 # How to use
+`* chmod a+x SCRIPT`
+Add executable permissions to the scripts in order for them to work.
+
 `Super + I` generates a terminal with a list of all the pdf names in the current searched path
 You type in the name of the pdf file you are trying to find. Press ENTER (return) when you have found the file you were looking for.
 This echoes the name into the `tmp_pdfname` txt file
