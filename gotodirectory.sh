@@ -11,3 +11,5 @@ local dir
 
 # Read the contents of the file, change the `.` symbol by $HOME and open the directory in a terminal
 dir=`cat $HOME/.homebrew_scripts/search_directory/dir.txt | sed -e "s|\.|$HOME|g"` &&  /usr/bin/gnome-terminal --working-directory=$dir
+
+# Bind this script to a hotkey by going `bash $HOME/.homebrew_scripts/search_directory/gotodirectory.sh` to get quick access
