@@ -1,52 +1,53 @@
 
 # Jrihon
 
-Hi there, a PhD student over at the lab of Medicinal Chemistry @Rega Institute for Medical Research in Leuven. 
-Contracted by the Catholic University of Leuven (KU Leuven).\
-I've studied Pharmaceutical Sciences, with a master degree in Drug Design and Development, and decided to completely switch it up and go towards the computational sciences. I've quite quickly grown fond of exploring and exploiting research methods through computational methods, during my master thesis, that I was very intent on continuing research in this field. I work primarily through numerical programming, scripting methods and predict biochemical reality through computational experiments.
-<br/>
-<br/>
+Hi there, a PhD student over at the laboratory of Medicinal Chemistry, Rega Institute for Medical Research at the KU Leuven.
+
+Pharmaceutical Sciences with a degree in Drug Design and Development, turned towards computer sciences.\
+I work primarily through numerical programming, scripting methods and predict biochemical reality through computational experiments.
+
 
 ## Research
 My main focus is on the computational characterisation of nucleic acids and protein engineering\
- `comp chem` `comp bio` `bio informatics`\
- `chemistry` `biology` `biotechnology`
+ `comp chem` `comp bio` `(bio) informatics`\
+ `chemistry` `linear algebra` `biology` `biotechnology`
 
 I work through static and dynamic modeling approaches, with the intent on making biological systems suitable by predicting the viability of said systems.
+
 
 ## Online presence 
  - [ORCID](https://orcid.org/0000-0002-9207-1556)
  - [LinkedIn](www.linkedin.com/in/jérôme-rihon)
  - [Bibliography - Published Work](http://lirias.kuleuven.be/cv?Username=U0141262)
-<br/>
+
 
 ## Skills
 Author of `jrihon/mutineer.vim` : Commenting in Vim made easier [jrihon/mutineer.vim](https://github.com/jrihon/mutineer.vim)<br/>
 ![Simplifies commenting and uncommenting lines of code](https://github.com/jrihon/mutineer.vim/blob/main/doc/mutineer_banner/mutineer.gif)
-<br />
-<br />
-`python 3`\
-`(Neo)Vim`\
-`LaTeX`\
-`shell`\
-`.dotfile configuration`\
-<br/>
-<br/>
+- `python 3`
+- `(Neo)Vim`
+- `LaTeX`
+- `Shell`
+- `.dotfile configuration`
+
 
 ## .dotfiles
 
 ### Nvim
 The Vim plugin manager I use is the `vim-plug`, over at [junegunn/vim-plug](https://github.com/junegunn/vim-plug)
+
+LSP workflow, configured in `lua`. `hrsh7th/nvim-cmp`-based completion engine.\
+Everything else configured in `vim`.\
 <br/>
-Do not forget to run the install.py from YouCompleteMe `cd ~/.config/nvim/plugged/YouCompleteMe && python3 install.py` with the flag (language configuration) you wish (check the README.md)
-<br/> 
-<br/>
+Build everything from source.
+
+
 ### Starship prompt
 The `Starship` prompt is available over at [Starship](https://starship.rs/)
 
-I use two different prompts. One for everyday and one for when I am inside tmux. This to not confuse my workflow and to make me aware I am working inside tmux.
-<br/> 
-<br/>
+I use two different prompts. One for everyday and one for when I am inside TMUX. This to not confuse my workflow and to make myself aware I am working inside TMUX.
+
+
 ### TMUX
 
 I recommend installing bash-completion and adding a tmux completion tool `imomaliev/tmux-bash-completion` to it to make it faster to work with tmux.<br/> 
@@ -63,19 +64,18 @@ if [ -n "$TMUX" ]; then
     export STARSHIP_CONFIG=~/.config/tmux_starship.toml
 fi
 ```
-<br/> 
-<br/>
 
-## Query PDF
-I friend of mine came up with an easy way to query pdf files from anywhere in his system (mainly articles for his thesis).<br/>
-Highly recommend to go and check it out.<br/>
-This method assumes you have `fzf` installed.<br/>
-I am putting up the method on my repo, but I am by no means the author. All credits go to him.
 
-The directory has a readme detailing how to use it and how to bind the scripts to keys for quick shortcuts.
+## Homebrew
+A small repository of scripts I use day to day to ease the workflow.
+- `query_pdf` : searches for pdf files on my system. Usually research papers.
+- `search_directory` : `cd` into a prompted directory, usually deep into the system.
+- `curl_pdb` : download a `*.pdb` file into the `cwd`, by prompting its filename.
+
 
 ## Acknowledgements
-This README.md has been written with the help of [readme.so](https://readme.so/) and [iamcco/markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim)
+This README.md has been written with the help of [iamcco/markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim)
 
   
+
 
