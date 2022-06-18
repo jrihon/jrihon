@@ -1,10 +1,10 @@
-"       _                                                  _       _ _               _           
-"      | | ___ _ __ ___  _ __ ___   ___                   (_)_ __ (_) |_      __   _(_)_ __ ___  
-"   _  | |/ _ \ '__/ _ \| '_ ` _ \ / _ \                  | | '_ \| | __|     \ \ / / | '_ ` _ \ 
-"  | |_| |  __/ | | (_) | | | | | |  __/                  | | | | | | |_   _   \ V /| | | | | | |
-"   \___/ \___|_|  \___/|_| |_| |_|\___|                  |_|_| |_|_|\__| (_)   \_/ |_|_| |_| |_|
+"                _                                                  _       _ _               _           
+"               | | ___ _ __ ___  _ __ ___   ___                   (_)_ __ (_) |_      __   _(_)_ __ ___  
+"            _  | |/ _ \ '__/ _ \| '_ ` _ \ / _ \                  | | '_ \| | __|     \ \ / / | '_ ` _ \ 
+"           | |_| |  __/ | | (_) | | | | | |  __/                  | | | | | | |_   _   \ V /| | | | | | |
+"            \___/ \___|_|  \___/|_| |_| |_|\___|                  |_|_| |_|_|\__| (_)   \_/ |_|_| |_| |_|
 " 
-"                                                                               created with figlet
+"                                                                                        created with figlet
 filetype indent on
 syntax on
 set tabstop=4 softtabstop=4
@@ -29,52 +29,64 @@ let python_highlight_all = 1
 " let g:python_host_prog = '/usr/bin/python'
 
 
-" Everything that's in between the plug call will be used as a plug-in when calling the ~/.vimrc "
-" ------------------------------------------------------------------
-"  VIM-PLUG BEGIN
-" ------------------------------------------------------------------
+" Everything that's in between the plug call will be used as a plug-in when calling the .vimrc "
+" ------------------------------------------------------------------------------------------------------------------------------------
+"                                                               PLUGINS INSTALLATION
+" ------------------------------------------------------------------------------------------------------------------------------------
 call plug#begin('~/.config/nvim/plugged')
+" NeoVim specific plugins : Completion, LSP and snippets
+Plug 'hrsh7th/nvim-cmp'                                 " Baseline completion engine
+Plug 'hrsh7th/cmp-buffer'                               " Completion for the buffer
+Plug 'hrsh7th/cmp-path'                                 " Completion for the path
+Plug 'hrsh7th/cmp-cmdline'                              " Completion for commandline in nvim
+Plug 'hrsh7th/cmp-nvim-lsp'                             " Completion for the LSP engine
+Plug 'L3MON4D3/LuaSnip'                                 " Snippets engine, just to tab complete blocks of boilerplate code of text
+Plug 'rafamadriz/friendly-snippets'                     " a bunch of snippets to use
+Plug 'neovim/nvim-lspconfig'                            " Neovim Language Server Protocol
+Plug 'williamboman/nvim-lsp-installer'                  " Bootstraps all of the LSP for you with doing much
+"
+" Vim practicals
 Plug 'jremmen/vim-ripgrep'                              " Search for words in files of the cwd, works really well!
 Plug 'tpope/vim-fugitive'                               " Git plugin, to flow better with vim
-"Plug 'vim-utils/vim-man'                                " View man pages in a vim-buffer. Grep for the man pages.
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }     " FuzzyFinder, works great!
-Plug 'junegunn/fzf.vim'                                 " fzf, has to be added
-Plug 'tmsvg/pear-tree'                                  " autcomplete pairs of brackets, quotes ...
-Plug 'valloric/YouCompleteMe'                           " YouCompleteMe, autocomplete from buffer and programming lang
-Plug 'mbbill/undotree'                                  " whenever you save something, it goes to the undo directory
-Plug 'itchyny/lightline.vim'                            " Customize the status bar through this plugin
-Plug 'morhetz/gruvbox'                                  " the best colorscheme in the world --ThePrimeagen
-Plug 'ap/vim-css-color'                                 " whenever you use rgba or hexcode in your scripts, this highlights the colourcode as that colour
-Plug 'preservim/nerdtree'                               " navigate with vim through your filetree
-Plug 'ryanoasis/vim-devicons'                           " nerd fonts
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'          " used with devicons but I don't know what for
-"Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 Plug 'lervag/vimtex'                                    " Plugin to use latex in neovim
-Plug 'yuttie/comfortable-motion.vim'                    " Plugin to make scrolling smoother.
 Plug 'jrihon/mutineer.vim'                              " Makes (un)commenting smoother!
-Plug 'jrihon/uwu.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']} "MarkDownPreview when writing a .md file 
 Plug 'grimme-lab/orca.vim'                              " syntax detection for orca input filetypes
 Plug 'akinsho/toggleterm.nvim'                          " Toggle a floating terminal
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }     " FuzzyFinder, works great!
+Plug 'junegunn/fzf.vim'                                 " fzf, has to be added
+Plug 'tmsvg/pear-tree'                                  " autcomplete pairs of brackets, quotes ...
+Plug 'mbbill/undotree'                                  " whenever you save something, it goes to the undo directory
+"Plug 'vim-utils/vim-man'                                " View man pages in a vim-buffer. Grep for the man pages.
+"Plug 'valloric/YouCompleteMe'                           " YouCompleteMe, autocomplete from buffer and programming lang
+"
+" Vim visuals : colors, typefaces, motion
+Plug 'morhetz/gruvbox'                                  " the best colorscheme in the world --ThePrimeagen
+Plug 'itchyny/lightline.vim'                            " Customize the status bar through this plugin
+Plug 'yuttie/comfortable-motion.vim'                    " Plugin to make scrolling smoother.
+Plug 'preservim/nerdtree'                               " navigate with vim through your filetree
+Plug 'ap/vim-css-color'                                 " whenever you use rgba or hexcode in your scripts, this highlights the colourcode as that colour
+Plug 'ryanoasis/nerd-fonts'                             " nerd fonts
+Plug 'ryanoasis/vim-devicons'                           " nerd fonts for vim specifically
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'          " used with devicons but I don't know what for
 Plug 'junegunn/goyo.vim'                                " distraction free reading
+"Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+"Plug 'jrihon/uwu.vim'
 call plug#end()
-" ------------------------------------------------------------------
-"  VIM-PLUG END
-" ------------------------------------------------------------------
-let g:SOURCEFILE = "~/.config/nvim/init.vim"
 
-" ------------------------------------------------------------------
-" BUNCH OF REMAPS "
-" ------------------------------------------------------------------
+let g:SOURCEFILE = "~/.config/nvim/init.vim"
+" ------------------------------------------------------------------------------------------------------------------------------------
+"                                                           MY FIRST REMAPS
+" ------------------------------------------------------------------------------------------------------------------------------------
 " INFO : <CR> means you enter the Return key when using the command, so it activates immediately
 " INFO : <SPACE> is used so the command is unfinished and we can input what we need
 " INFO : <bar> is the same as using a pipe symbol '|'
 
-" New leader key, used later when remapping "
+" New leader key, used later when remapping, which is <SPACE>
 let mapleader = " "
 
 
-" Whenever a new split is created
+" Whenever a new split is created with :vsplit
 let g:netrw_browse_split=2
 let g:netrw_banner = 0
 let g:netrw_winsize = 25
@@ -107,16 +119,7 @@ nnoremap <leader>so :source $HOME/.config/nvim/init.vim<CR>
 
 
 " -----------------------------------
-" MISSCELANIOUS
-" shows undo tree, whichs shows the history of what you've done
-nnoremap <leader>u :UndotreeShow<CR>
-" ripgrep to search for stuff"
-nnoremap <leader>rg :Rg<SPACE>
-" Toggle the quickfix list open and closed
-nnoremap <leader>c :call QuickfixToggle()<cr>
-" Copy Visual Selection to system's clipboard. requires 'xclip'
-vnoremap <leader>pp :%w !xclip -selection clipboard<CR><CR> :echo "Selection clipped!"<CR>
-autocmd BufNewFile,BufRead * call XclipExists()
+" LaTeX Remaps
 " Go down visual lines when the :set wrap has been called, so mainly used in LaTex
 autocmd BufNewFile,BufRead *.tex,*.txt call SetMovementsInLatex()
 " If the current file we are working is, is a *.tex filetype, 
@@ -124,9 +127,6 @@ autocmd BufNewFile,BufRead *.tex,*.txt call SetMovementsInLatex()
 "       then set the linebreak on to leave words whole
 autocmd BufNewFile,BufRead *.tex,*.txt set wrap
 autocmd BufNewFile,BufRead *.tex,*.txt set linebreak
-"when you open a new vertical split, move the cursor automatically to that new file
-nnoremap <silent> <leader>vs :vsplit<bar>:wincmd l<bar>:Files<CR>
-
 " Whenever I open a .tex filetype, remap the movement keys to jump visual lines
 function! SetMovementsInLatex() abort
     nnoremap <expr> j v:count ? 'j' : 'gj'
@@ -135,15 +135,29 @@ function! SetMovementsInLatex() abort
     vnoremap <expr> k v:count ? 'k' : 'gk'
 endfunction
 
-"
-" Call for whenever we use the <leader>pp remap and the system does not include xclip
+
+" -----------------------------------
+" MISSCELANIOUS
+" shows undo tree, whichs shows the history of what you've done
+nnoremap <leader>u :UndotreeShow<CR>
+" RipGrep remap "
+nnoremap <leader>rg :Rg<SPACE>
+"when you open a new vertical split, move the cursor automatically to that new file
+nnoremap <silent> <leader>vs :vsplit<bar>:wincmd l<bar>:Files<CR>
+" Remap of fat fingers command
+command! -nargs=* Wq wq
+" Copy Visual Selection to system's clipboard. requires 'xclip'
+vnoremap <leader>pp :%w !xclip -selection clipboard<CR><CR> :echo "Selection clipped!"<CR>
+autocmd BufNewFile,BufRead * call XclipExists()
+" Function that $(which xclip), to be used in the copy to clipboard macro
 function! XclipExists() abort
     if !executable("xclip")
         echom "You need to install xclip in order to copy to clipboard!"
     endif
 endfunction
 
-
+" Toggle the quickfix list open and closed, often used in LaTeX
+nnoremap <leader>c :call QuickfixToggle()<cr>
 " custom variable we make. This is to say that whenever the Quickfix list is open, we close it with the remap
 autocmd BufWrite,BufEnter *.tex let s:quickfix_is_open = 1
 function! QuickfixToggle() abort
@@ -156,6 +170,12 @@ function! QuickfixToggle() abort
     endif
 endfunction
 
+
+
+
+" ------------------------------------------------------------------------------------------------------------------------------------
+"                                                               PLUGINS CONFIGURATION
+" ------------------------------------------------------------------------------------------------------------------------------------
 
 " ------------------------------------------------------------------
 " MUTINEER CONFIGURATION
@@ -222,8 +242,8 @@ endif
 " YOUCOMPLETEME CONFIGURATION
 " -----------------------------------
 " You can jump to functions or definitions that are located in different files by having your cursor over the called function
-nnoremap <silent> <Leader>gd :YcmCompleter GoTo<CR>
-nnoremap <silent> <Leader>gf :YcmCompleter FixIt<CR>
+"nnoremap <silent> <Leader>gd :YcmCompleter GoTo<CR>
+"nnoremap <silent> <Leader>gf :YcmCompleter FixIt<CR>
 
 
 
@@ -287,18 +307,16 @@ endif
 nnoremap <leader>nw :NERDTree <bar> :vertical resize 60<CR>
 
 " Make hidden files visible, this does make the filetree a bit bloated, so maybe we can create a Toggle for this
-"let g:NERDTreeShowHidden = 1
+" To toggle hidden files in NERDTree, the map setting (NERDTreeMapToggleHidden)  is defaulted as I ( shift + i)
+" let g:NERDTreeShowHidden = 1
 " The icons do not have brackets around them anymore in NERDTree
 let g:webdevicons_conceal_nerdtree_brackets = 1
 let g:webdevicons_enable = 1
 
-" !!!!!!!!!!!!!
-" To toggle hidden files in NERDTree, the map setting (NERDTreeMapToggleHidden)  is defaulted as I ( shift + i)
-" !!!!!!!!!!!!!
 
 " nerdtree-symbols
 let g:WebDevIconsUnicodeDecorateFileNodesDefaultSymbol = ' '
-let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {}  " initialise the dictionary here to then add the extensions
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {}  " Initialise the dictionary here to then add the extensions
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['pdf'] = ''
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['gz'] = ' '
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['sh'] = ' '
@@ -308,7 +326,7 @@ let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['cpp'] = 'C'
 
 " nerdtree-highlighting
 let g:NERDTreeFileExtensionHighlightFullName = 1
-let g:NERDTreeExtensionHighlightColor = {} " this line is needed to avoid error
+let g:NERDTreeExtensionHighlightColor = {} " Needed to initialise the dictionary to add colours
 let s:VIMgreen = "019733"
 let s:PDFred = "FE405F"
 let s:MDblue = "44788E"
@@ -323,15 +341,15 @@ let g:NERDTreeExtensionHighlightColor['md'] = s:MDblue
 " ------------------------------------------------------------------
 " VIMTEX CONFIGURATION
 " ------------------------------------------------------------------
-" Only this makes VimTex autocomplete. Found on ':help VimTex'
+" Only this makes VimTex compile. Found on ':help VimTex'
 "
 "$ sudo apt install latexmk
 "
-" Uses YouCompleteMe
-if !exists('g:ycm_semantic_triggers')
-  let g:ycm_semantic_triggers = {}
-endif
-au VimEnter * let g:ycm_semantic_triggers.tex=g:vimtex#re#youcompleteme
+" Uses YouCompleteMe for this.
+"if !exists('g:ycm_semantic_triggers')
+"  let g:ycm_semantic_triggers = {}
+"endif
+"au VimEnter * let g:ycm_semantic_triggers.tex=g:vimtex#re#youcompleteme
 
 
 
@@ -357,8 +375,14 @@ nnoremap <silent> <C-u> :call comfortable_motion#flick(-100)<CR>
 autocmd BufRead,BufNewFile *.inp set filetype=orca
 
 
+" ------------------------------------------------------------------
+" GOYO.VIM ----- DISTRACTION FREE SCREEN
+" ------------------------------------------------------------------
 
-
+let g:goyo_width = 160
+"let g:goyo_height = 
+" :Goyo     --> ON
+" :Goyo!    --> OFF
 
 
 
@@ -401,16 +425,269 @@ require("toggleterm").setup{
 EOF
 
 
-" ------------------------------------------------------------------
-" GOYO.VIM ----- DISTRACTION FREE SCREEN
-" ------------------------------------------------------------------
 
-let g:goyo_width = 160
-"let g:goyo_height = 
+" ------------------------------------------------------------------
+" CMP (COMPLETION) CONFIGURATION
+" ------------------------------------------------------------------
+set completeopt=menu,menuone,noselect
+
+" source : https://github.com/hrsh7th/nvim-cmp
+lua <<EOF
+
+  -- Symbols that are LSP-related
+  -- find more here : https://www.nerdfonts.com/cheat-sheet
+  -- When you have installed the font, go the your Terminal Preferences and change the font there!
+
+  local kind_icons = {
+    Text = "",
+    Method = "",
+    Function = "",
+    Constructor = "",
+    Field = "",
+    Variable = "",
+    Class = "ﴯ",
+    Interface = "",
+    Module = "",
+    Property = "ﰠ",
+    Unit = "",
+    Value = "",
+    Enum = "",
+    Keyword = "",
+    Snippet = "",
+    Color = "",
+    File = "",
+    Reference = "",
+    Folder = "",
+    EnumMember = "",
+    Constant = "",
+    Struct = "",
+    Event = "",
+    Operator = "",
+    TypeParameter = ""
+  }
+
+  -- Snippet configuration
+  require("luasnip.loaders.from_vscode").lazy_load()
+
+
+  -- Function used in SuperTab
+  local has_words_before = function()
+    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+  end
+
+  -- Setup nvim-cmp with LSP config and snippets
+  local cmp = require('cmp')
+  local lspconfig = require('lspconfig')
+  local luasnip = require('luasnip')
+
+
+
+  -- COMPLETION SETUP
+  cmp.setup({
+    snippet = {
+      -- REQUIRED - you must specify a snippet engine
+      expand = function(args)
+        require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+      end,
+    },
+    window = {
+      completion = cmp.config.window.bordered(),
+      documentation = cmp.config.window.bordered(),
+    },
+    mapping = cmp.mapping.preset.insert({
+      ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+      ['<C-f>'] = cmp.mapping.scroll_docs(4),
+      ['<C-j>'] = cmp.mapping.select_next_item(),
+      ['<C-k>'] = cmp.mapping.select_prev_item(),
+      ['<C-Space>'] = cmp.mapping.complete(),
+      ['<C-x>'] = cmp.mapping.abort(),
+      ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+
+      -- SuperTab Set-up from Chris@Machine https://www.youtube.com/watch?v=GuIcGxYqaQQ
+      ["<Tab>"] = cmp.mapping(function(fallback)
+        if cmp.visible() then
+          cmp.select_next_item()
+        elseif luasnip.expand_or_jumpable() then
+          luasnip.expand_or_jump()
+        elseif has_words_before() then          -- has_words_before() function called here
+          cmp.complete()
+        else
+          fallback()
+        end
+      end, { "i", "s" }),
+      ["<S-Tab>"] = cmp.mapping(function(fallback)
+        if cmp.visible() then
+          cmp.select_prev_item()
+        elseif luasnip.jumpable(-1) then
+          luasnip.jump(-1)
+        else
+          fallback()
+        end
+      end, { "i", "s" }),
+    }),
+    -- Docs : https://github.com/hrsh7th/nvim-cmp/wiki/Menu-Appearance 
+    formatting = {
+      format = function(entry, vim_item)
+        -- Kind icons
+        vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
+        -- Source
+        vim_item.menu = ({
+          buffer = "[File]",
+          path = "[Path]",
+          nvim_lsp = "[LSP]",
+          luasnip = "[LuaSnip]",
+          nvim_lua = "[Lua]",
+          latex_symbols = "[LaTeX]",
+        })[entry.source.name]
+        return vim_item
+      end
+    },
+    sources = cmp.config.sources({
+      { name = 'luasnip' }, -- For luasnip users.
+      { name = 'nvim_lsp' },-- Added source from cmp_nvim_lsp
+      { name = 'buffer'},
+      { name = 'path'},
+      -- { name = 'vsnip' }, -- For vsnip users.
+      -- { name = 'ultisnips' }, -- For ultisnips users.
+      -- { name = 'snippy' }, -- For snippy users.
+    }),
+  }) -- FINAL BRACKET OF THE CMP.SETUP
+
+  -- Set configuration for specific filetype.
+  cmp.setup.filetype('gitcommit', {
+    sources = cmp.config.sources({
+      { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
+    }, {
+      { name = 'buffer' },
+    })
+  })
+
+  -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+  cmp.setup.cmdline('/', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = {
+      { name = 'buffer' }
+    }
+  })
+
+  -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+  cmp.setup.cmdline(':', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = cmp.config.sources({
+      { name = 'path' }
+    }, {
+      { name = 'cmdline' }
+    })
+  })
+
+EOF
+
+" Sidenote : https://www.youtube.com/watch?v=6F3ONwrCxMg&t=1300s  , the
+" init.lua file in a different directory
+" ------------------------------------------------------------------
+" LSP INSTALLER  CONFIGURATION
+" ------------------------------------------------------------------
+"SETUP
+"The recommended way of setting up your installed servers is to do it through nvim-lsp-installer.
+"By doing so, NVIM-LSP-INSTALLER WILL MAKE SURE TO INJECT ANY NECESSARY PROPERTIES BEFORE CALLING LSPCONFIG'S SETUP FUNCTION FOR YOU.
+"You may find a minimal example below. To see how you can override the default settings for a server, refer to the Wiki.
+"
+"Make sure you don't also set up your servers directly via lspconfig (e.g. require("lspconfig").clangd.setup {}), as this will cause servers to be set up twice!
+lua <<EOF
+
+  local status_ok, _ = pcall(require, 'lspconfig')
+  if not status_ok then
+      return
+  end
+
+  local signs = {
+    { name = "DiagnosticsSignError", text = ""},
+    { name = "DiagnosticsSignWarn", text = ""},
+    { name = "DiagnosticsSignHint", text = ""},
+    { name = "DiagnosticsSignInfo", text = ""},
+      }
+
+  for _, sign in ipairs(signs) do 
+      vim.fn.sign_define(sign.name, {texthl = sign.name, text = sign.text, numhl = ""})
+  end
+
+  -- Add additional capabilities supported by nvim-cmp
+  -- LOAD CAPABILITIES AS A FINAL STEP
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
+  capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
+  -- Start the set up of the installer
+  local lsp_installer = require("nvim-lsp-installer")
+  -- Register a handler that will be called for each installed server when it's ready (i.e. when installation is finished
+  -- or if the server is already installed).
+  lsp_installer.on_server_ready(function(server)
+      local opts = {
+          capabilities = capabilities -- READ IN CAPABILITIES
+          }
+      -- If you want to have specific configurations per language server, this is the place to have it
+  
+      -- (optional) Customize the options passed to the server
+      -- if server.name == "tsserver" then
+      --     opts.root_dir = function() ... end
+      -- end
+  
+      -- This setup() function will take the provided server configuration and decorate it with the necessary properties
+      -- before passing it onwards to lspconfig.
+      -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+      server:setup(opts)
+  end)
+
+  -- Include the servers you want to have installed by default below
+  local servers = { "pyright", "texlab", "sumneko_lua", "vimls", "rust_analyzer" }
+  
+  for _, name in pairs(servers) do
+    local server_is_found, server = lsp_installer.get_server(name)
+    if server_is_found and not server:is_installed() then
+      print("Installing " .. name)
+      server:install()
+    end
+  end
+
+  -- Add settings to the icons we use when installing
+  lsp_installer.settings({
+      ui = {
+          icons = {
+              server_installed = "✓",
+              server_pending = "➜",
+              server_uninstalled = "✗",
+          }
+      }
+  })
+
+  -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
+  -- EDIT : This is handled by lsp_installer table below
+  -- local servers = {'pyright', 'texlab', 'sumneko_lua'}
+--  for _, lsp in ipairs(servers) do
+--      lspconfig[lsp].setup{}
+--  --      -- on_attach = my_custom_on_attach,
+--  --      capabilities = capabilities,
+--  --    }
+--  end
+
+
+EOF
+
+" ------------------------------------------------------------------
+" LSP (LANGUAGE SERVER PROTOCOL) CONFIGURATION
+" ------------------------------------------------------------------
+lua <<EOF
+local opts = { noremap=true, silent=true }
+-- go to defintion remap
+vim.api.nvim_set_keymap('n', '<space>gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+EOF
+
+
+
+
 
 "                                                                                      __ _       
 "                                                                                     / _(_)_ __  
 "                                                                                    | |_| | '_ \ 
 "                                                                                    |  _| | | | |
 "                                                                                    |_| |_|_| |_|
-
