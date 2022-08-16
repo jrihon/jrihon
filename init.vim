@@ -106,7 +106,6 @@ Plug 'junegunn/goyo.vim'                                " distraction free readi
 " https://github.com/wbthomason/packer.nvim -----> new package manager for nvim in lua
 call plug#end()
 
-let g:SOURCEFILE = "~/.config/nvim/init.vim"
 " ------------------------------------------------------------------------------------------------------------------------------------
 "                                                           MY FIRST REMAPS
 " ------------------------------------------------------------------------------------------------------------------------------------
