@@ -25,6 +25,11 @@
 "set background=dark
 "set encoding=UTF-8
 "https://vonheikemen.github.io/devlog/tools/configuring-neovim-using-lua/
+"
+"
+"       TESTING GIT PUSHES AND MERGES 14:25 on 16-08-2022
+"
+"
 lua <<EOF
 vim.api.nvim_command('filetype indent on')
 vim.api.nvim_command('syntax on')
