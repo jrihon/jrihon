@@ -13,6 +13,25 @@ vim.g.mapleader = " "
 --[[ -----------------------------
             PLUGIN KEYMAPS
  --------------------------------- ]]
+-- [[ Mutineer keymaps ]]
+vim.api.nvim_set_keymap('n', '<leader>m', ':Mutineer<CR>', {noremap = true})
+vim.api.nvim_set_keymap('v', '<leader>m', ':Mutineer<CR>', {noremap = true})
+vim.api.nvim_set_keymap('v', '<leader>M', ':MutineerBlock<CR>', {noremap = true})
+
+
+--[[ Telescope keymaps ]]
+keymap('n', '<C-p>', ':Telescope find_files<CR>', opts )
+keymap('n', '<C-b>', ':Telescope buffers<CR>', opts )
+keymap('n', '<C-w>', ':Telescope live_grep<CR>', opts )
+
+
+--[[ Toggleterm keymaps ]]
+-- keymap : <C-\> is used to toggle the floating terminal
+
+
+--[[ LSP keymaps ]]
+-- check out nvim/lua/jrihon/lsp/handlers.lua for LSP related keymaps !
+
 
 --[[ -----------------------------
             VIM KEYMAPS
@@ -42,6 +61,7 @@ autocmd({"BufNewFile", "BufRead"}, { pattern = {"*.tex", "*.txt"}, command = [[s
 autocmd({"BufNewFile", "BufRead"}, { pattern = {"*.tex", "*.txt"}, command = [[set linebreak]]})
 
 -- function to set movement mappings for LaTex (wrapped text)
+-- Move visual lines instead of actual lines
 function SetMovementsInLatex()
   keymap("n", "j", "v:count ? 'j' : 'gj'", expr_opts )
   keymap("n", "k", "v:count ? 'k' : 'gk'", expr_opts )
@@ -53,8 +73,7 @@ autocmd({"BufNewFile", "BufRead"}, { pattern = {"*.tex", "*.txt"}, command = [[ 
 
 
 --[[ Misscelanious keymaps ]]
-vim.api.nvim_set_keymap("n", "<leader>u", ":UndotreeShow<CR>", opts ) -- shows undo tree
-vim.api.nvim_set_keymap("n", "<leader>rg", ":Rg<SPACE>", opts ) -- RipGrep remap
+vim.api.nvim_set_keymap("n", "<leader>u", ":UndotreeShow<CR>", silent_opts ) -- shows undo tree
 -- Clip selection from visual mode and copy to clipboard
 vim.api.nvim_set_keymap("v", "<leader>pp", ":%w !xclip -selection clipboard<CR><CR> :echo 'Selection clipped!'<CR>", opts )
 
