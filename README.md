@@ -36,6 +36,12 @@ I work through static and dynamic modeling approaches, with the intent on making
 Neovim configuration, written in Lua. Using LSP support and `cmp`-based completion engine.
 <br/>
 Build everything from source.
+```
+~/.config/nvim/ - init.lua
+                - lua/jrihon/ - *.lua
+                              - lsp/ - *.lua
+                                     - settings/ *.lua
+```
 
 
 ### Starship prompt
