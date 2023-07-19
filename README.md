@@ -12,7 +12,7 @@ I write `python3`, dabble in `Lua` for `nvim` plugins and started `Rustlang` rec
 
 
 ### .dotfiles
-[neovim](https://github.com/jrihon/nvim) | [tmux](https://github.com/jrihon/tmux) | [starship](https://github.com/jrihon/starship)
+[neovim](https://github.com/jrihon/nvim) | [tmux](https://github.com/jrihon/tmux) | [starship](https://github.com/jrihon/starship) | [kitty](https://github.com/jrihon/kitty)
 
 ### Research
 My main focus is on the computational characterisation of nucleic acids\
