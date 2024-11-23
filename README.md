@@ -1,25 +1,40 @@
-
 # Jrihon
 
-Studied Pharmaceutical Sciences (KU Leuven) with a degree in Drug Design and Development, turned towards computer sciences.\
-I work primarily through numerical programming and scripting methods to model (bio)molecular complexes.\
-I write `python3`, dabble in `Lua` for `nvim` plugins and started `Rustlang` recently.
+Pharmaceutical Sciences (KU Leuven) with a degree in Drug Design and Development. Did my PhD (Medicinal Chemistry, KU Leuven, Rega Institute) on the topic of synthetic nucleic acids. 
+
+Developed software for my PhD and some leisure coding on the side. Actively looking for an opportunity where science meets code.
 
 
-- Author of `jrihon/mutineer.lua`, `jrihon/goto.nvim`
-- `Python 3` `LaTeX` `Lua` `Rust`
-- `Neovim` + `Tmux`
+
+## Programming
+
+### Languages
+`Python` | `Rust` | `Bash` | `Typst` | `LaTeX` | `Lua` | `Julia` 
+
+Brief encounters with `C` | `Pascal`
+### Check out my projects ! 
+- [jrihon/Ducque](https://github.com/jrihon/Ducque) - A model builder to generate models of XNA, with user-implementable analogs, in Python!
+- [jrihon/puckepy](https://github.com/jrihon/puckepy) - Python module for QM-based conformational sampling of molecules - written in Rust btw.
+- [jrihon/puckers](https://github.com/jrihon/puckers) - Rust CLI for QM-based conformational sampling of molecules.
+- [jrihon/mutineer.lua](https://github.com/jrihon/mutineer.lua) - Extensible commenting plugin for nvim, in Lua.
+- [jrihon/multi-bibs](https://github.com/jrihon/multi-bibs) -  Support multiple bibliographies e.g. for thesis manuscripts, in Typst.
 
 
-### .dotfiles
-[neovim](https://github.com/jrihon/nvim) | [tmux](https://github.com/jrihon/tmux) | [starship](https://github.com/jrihon/starship)
+### .dotfiles (links to configs)
 
-### Research
-My main focus is on the computational characterisation of nucleic acids\
-I work through static and dynamic modeling approaches, with the intent on making biological systems suitable by predicting the viability of said systems.\
- `comp chem` `comp bio` `(bio) informatics`\
- `chemistry` `linear algebra` `biology` 
+I use the [kitty](https://github.com/jrihon/kitty) terminal emulator and have my prompts customised through [starship](https://github.com/jrihon/starship). 
+To work and manage projects, I use [tmux](https://github.com/jrihon/tmux). All my programming and general text editing is done with [neovim](https://github.com/jrihon/nvim).
 
+## PhD research
+- Modeling the behaviour of synthetic analogs of DNA and RNA `(XNA)`.
+- Perform predictions using pure in silico methodologies.
+- Use computational chemistry to describe the modified analogs `(QM` |`force field design` | `MM)`.
+- Developed cheminformatics tools to design a pipeline for model prediction `(programming)`.
 
-### Online presence 
-[ORCID](https://orcid.org/0000-0002-9207-1556) | [LinkedIn](www.linkedin.com/in/jérôme-rihon) | [Bibliography - Published Work](http://lirias.kuleuven.be/cv?Username=U0141262)
+`SPOILER ALERT --- GREAT SUCCESS !`
+
+### Tags
+`computational chemisty` | `cheminformatics` | `molecular dynamics` | `quantum mechanics` | `molecular mechanics` | `python` | `rust` | `synthetic nucleic acids` | `XNA` | `scientific programming` | `linear algebra` | `model builder` | `cli tools` 
+
+## Online presence 
+[ORCID](https://orcid.org/0000-0002-9207-1556) | [LinkedIn](www.linkedin.com/in/jérôme-rihon) | [Bibliography - Published Work](http://lirias.kuleuven.be/cv?Username=U0141262) | [CV](https://www.github.com/jrihon/cv)
