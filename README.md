@@ -1,15 +1,16 @@
 # Jrihon
 
-Pharmaceutical Sciences (KU Leuven) with a degree in Drug Design and Development. Did my PhD (Medicinal Chemistry, KU Leuven, Rega Institute) on the topic of synthetic nucleic acids. 
+Software engineer over at BioLizard (Ghent, Belgium).
 
-Developed software for my PhD and some leisure coding on the side. Actively looking for an opportunity where science meets code.
+Did my PhD (Medicinal Chemistry, KU Leuven, Rega Institute) on the topic of synthetic nucleic acids, using computational chemistry and cheminformatics.
+I developed forcefields and modelled bespoke xenobiotic nucleic acids, which was facilitated by the Ducque (model builder) and pucke.rs (conformational sampling) tools I created during my research projects.
 
-
+Feel free to reach out to me on my research and future endeavours!
 
 ## Programming
 
 ### Languages
-`Python` | `Rust` | `Bash` | `Typst` | `LaTeX` | `Lua` | `Julia` 
+`Python` | `Rust` | `Bash` | `Typst` | `LaTeX` | `Lua` | `Julia` | `Nextflow`
 
 Brief encounters with `C` | `Pascal`
 ### Check out my projects ! 
